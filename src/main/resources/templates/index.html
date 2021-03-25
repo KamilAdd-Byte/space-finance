@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="Paragony" name="description"/>
+	<!--	<link rel="shortcut icon" href="https://www.pngarts.com/files/3/Letter-N-Free-PNG-Image.png">-->
+	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+	<title>Space family finance</title>
+</head>
+<style>
+    #container {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    input[type=radio]:checked + label:before {
+        color: #de0f0f;
+        line-height: 15px;
+    }
+
+    #menu {
+        padding: 5px;
+        background-color: #cd10db;
+        color: white;
+        letter-spacing: 4px;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    #content {
+        padding: 30px;
+        font-size: 22px;
+		border-style: dashed;
+      	border-color: cornflowerblue;
+    }
+
+    #second-group {
+        clear: both;
+    }
+
+    /*#slider-left{*/
+    /*    float: left;*/
+    /*    width: 147px;*/
+    /*    min-height: 620px;*/
+    /*    padding: 20px;*/
+    /*    text-align: center;*/
+    /*    font-size: 18px;*/
+    /*    border-right: 3px dotted #404040;*/
+    /*}*/
+    #navi {
+        padding: 10px;
+    }
+
+    #container-fluid{
+		padding: 5px;
+	}
+    table {
+        align-content: baseline;
+        padding: 20px;
+    }
+
+    .table:hover {
+        padding: 10px;
+    }
+
+    legend {
+        color: chocolate;
+        text-decoration: black;
+        font-size: 24px;
+    }
+
+    #footer {
+        clear: both;
+        padding: 20px;
+        background-color: #cd10db;
+        font-size: 22px;
+        color: white;
+        alignment-baseline: center;
+        text-align: center;
+    }
+</style>
+<body onload="connect()">
+<div id="container">
+	<nav id="menu" class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">Space finance</a>
+		</div>
+	</nav>
+	<div id="navi">
+		<div class="container-fluid">
+			<a class="btn btn-outline-primary" th:href="@{/paragon}">Strefa zakupów</a>
+			<a class="btn btn-outline-primary" >Strefa samochodu</a>
+			<a class="btn btn-outline-primary" >Strefa mieszkania</a>
+			<a class="btn btn-outline-primary" >Strefa turystyki</a>
+			<a class="btn btn-outline-primary" >Strefa kontaktów</a>
+		</div>
+	</div>
+		<div align="center" id="content">
+			<h3>Message broker</h3>
+			<label>User</label><input id="user" type="text">
+
+			<button onclick="sendMessage()" class="btn btn-success">Wyślij</button>
+			<p id="response"></p>
+			<script src="js.js"></script>
+			<script src="stomp.js"></script>
+		</div>
+
+</div>
+<div class="navbar navbar-light bg-dark" id="footer">
+	<a href="https://github.com/KamilAdd-Byte/Note-App">Paragonik KamilAdd-Byte</a>
+</div>
+</div>
+</body>
+</html>
+

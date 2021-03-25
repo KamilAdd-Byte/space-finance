@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Mister Paragonik</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<!--	<link href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css" rel="stylesheet">-->
+	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+	<style>
+        #container {
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #navi {
+            padding: 10px;
+        }
+        #menu {
+            padding: 5px;
+            background-color: #cd10db;
+            color: white;
+            letter-spacing: 4px;
+            font-size: 22px;
+            text-align: center;
+        }
+        #content {
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            display: block;
+            width: 100%;
+        }
+
+        #empty {
+            padding: 20px;
+        }
+
+        #footer {
+            clear: both;
+            padding: 20px;
+            background-color: cornflowerblue;
+            font-size: 22px;
+            color: black;
+            text-align: center;
+        }
+
+		.h6{
+			size: 14px;
+			color: #e51c23;
+		}
+        .Bd {
+            border: solid 1px white;
+        }
+
+        .Bdc\(red\) {
+            border-color: red !important;
+        }
+	</style>
+</head>
+<body>
+<main>
+	<nav id="menu" class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">Space finance</a>
+		</div>
+	</nav>
+	<div id="navi">
+		<div class="container-fluid">
+			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
+			<a class="btn btn-warning" th:href="@{/paragon_info}">Dodaj paragon</a>
+			<a class="btn btn-outline-danger" th:href="@{/sum}">Raport</a>
+			<div align="right">
+				<span>Strefa zakupów</span>
+			</div>
+		</div>
+
+	</div>
+	<div align="left">
+		<h6>Historia zakupów</h6>
+	</div>
+	<div align="center" id="content">
+		<table class="table table-active table-hover table-striped table-responsive-lg" th:border="2">
+			<thead>
+			<tr align="center">
+				<th>id</th>
+				<th>wydano</th>
+				<th>sklep</th>
+				<th>kto</th>
+				<th>kiedy</th>
+				<th>opcje</th>
+				<!--				<th>Kategoria</th>-->
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:align="center" th:each="paragon: ${listAllParagon}">
+				<td th:text="${paragon.id}"></td>
+				<td th:text="${paragon.price}"></td>
+				<td th:text="${paragon.shopName.description}"></td>
+				<td th:text="${paragon}"></td>
+				<td th:text="${paragon.getAudit().create}"></td>
+				<td>
+					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>
+					<a class="btn btn-danger" th:href="@{/remove/{id}(id=${paragon.id})}">Usuń</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+<!--		<div align="right">-->
+<!--			<form th:object="${sum}">-->
+<!--				<fieldset>-->
+<!--					<legend>-->
+<!--						<label>-->
+<!--							<h1>Suma <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h1>-->
+<!--						</label>-->
+<!--					</legend>-->
+<!--				</fieldset>-->
+<!--			</form>-->
+<!--		</div>-->
+		</form>
+		</div>
+	</div>
+	<div id="empty"></div>
+	<div id="footer">
+		<a class="navbar navbar-light bg-dark" href="https://github.com/KamilAdd-Byte/Note-App">Paragonik</a>
+	</div>
+	</div>
+</main>
+</body>
+</html>
+
