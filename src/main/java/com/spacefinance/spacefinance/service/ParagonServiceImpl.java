@@ -49,8 +49,7 @@ public class ParagonServiceImpl implements ParagonService {
     public double getSumAllParagon() {
         double price = 0.0;
         List<Paragon> paragons = paragonRepository.findAll();
-        for (int i = 0; i < paragons.size(); i++) {
-            Paragon paragon = paragons.get(i);
+        for (Paragon paragon : paragons) {
             price += paragon.getPrice();
         }
         return price;
