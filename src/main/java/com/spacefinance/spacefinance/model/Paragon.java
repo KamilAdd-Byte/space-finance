@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,7 +23,7 @@ import java.util.Objects;
 @NoArgsConstructor
 public class Paragon implements Serializable {
 
-    @MongoId
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_paragon")
     private String id;

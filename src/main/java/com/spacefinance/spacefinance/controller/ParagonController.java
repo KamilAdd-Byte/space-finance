@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ParagonController {
 
+    @Autowired
     private final ParagonService paragonService;
 
-    @Autowired
     public ParagonController(ParagonService paragonService) {
         this.paragonService = paragonService;
     }
@@ -25,6 +25,8 @@ public class ParagonController {
     @GetMapping("/paragon")
     public String allUser(Model model) {
         model.addAttribute("listAllParagon", paragonService.allParagons());
+        model.addAttribute("sum",paragonService.sizeParagon());
+        model.addAttribute("allPrice",paragonService.getSumAllParagon());
         return "paragon";
     }
      @GetMapping("/paragon_info")
@@ -53,18 +55,16 @@ public class ParagonController {
 
     @GetMapping("/remove/{paragon}")
     public String removeParagonById(@PathVariable("paragon") Paragon paragon, Model model) {
-        model.addAttribute("message", "Usunięto pomyślnie!");
         paragonService.removeParagon(paragon);
+        model.addAttribute("message", "Usunięto pomyślnie!");
         return "redirect:/paragon";
     }
-//
-//    @GetMapping("/update/{id}")
-//    public String updateParagonById(@PathVariable("id") Long id, @ModelAttribute("user") User user, Model model) {
-//        Paragon paragonById = paragonService.findParagonById(id);
-//        model.addAttribute("message", "Update pomyślnie!");
-//        model.addAttribute("paragon", paragonById);
-//        model.addAttribute("listAllUser", userService.allUsers());
-//        return "paragon_update";
-//    }
 
+    @GetMapping("/update/{id}")
+    public String updateParagonById(@PathVariable("id") String id, Paragon paragon, Model model) {
+        paragonService.updateParagon(id,paragon);
+        model.addAttribute("message", "Update pomyślnie!");
+        model.addAttribute("paragon",paragon);
+        return "paragon_update";
+    }
 }

@@ -65,7 +65,7 @@
 	<div align="center" id="content">
 		<h1 align="center">Wprowadź nowy paragon</h1>
 		<form action="#" method="POST" th:action="@{/save_paragon}" th:object="${paragon}">
-			<input type="hidden" th:field = "*{id}">
+
 			<div align="center">
 				<fieldset>
 					<legend>Wydano</legend>
@@ -129,9 +129,9 @@
 			</div>
 			<fieldset>
 				<legend>Kto płacił</legend>
-				<input  id="1" name="id" th:field="*{id}" th:object="${user}" type="radio" value="1"> <label for="1">
+				<input  id="1" name="KAMIL"  th:object="${paragon}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
 				Kamil</label>
-				<input id="2" name="id" th:field="*{id}" th:object="${user}" type="radio" value="2"> <label for="2">
+				<input id="2" name="KASIA"  th:object="${paragon}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
 				Kasia</label>
 			</fieldset>
 
