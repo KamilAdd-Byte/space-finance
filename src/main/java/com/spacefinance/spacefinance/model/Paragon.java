@@ -4,17 +4,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Objects;
 
 @Setter
 @Getter
 @ToString
-@Document(collection = "Paragon")
+@Document(collection = "Space")
 @NoArgsConstructor
 public class Paragon implements Serializable {
 
@@ -23,19 +27,32 @@ public class Paragon implements Serializable {
     @Column(name = "id_paragon")
     private String id;
 
+    @Column(name = "user")
+    private String user;
+
     @Column(name = "price")
     private double price;
 
     @Column(name = "shop_name")
-//    @Enumerated(EnumType.STRING)
     private ShopName shopName;
 
-    @Column(name = "user")
-    private User user;
+    @Column(name = "date")
+    private LocalDate date = LocalDate.now();
 
-    @Embedded
-    private Audit audit = new Audit();
+    @Column(name = "time")
+    private LocalTime time = LocalTime.now();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Paragon)) return false;
+        Paragon paragon = (Paragon) o;
+        return Double.compare(paragon.price, price) == 0 && id.equals(paragon.id) && user.equals(paragon.user) && shopName == paragon.shopName && Objects.equals(date, paragon.date) && Objects.equals(time, paragon.time);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, price, shopName, date, time);
+    }
 }
 

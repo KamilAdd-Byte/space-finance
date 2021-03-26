@@ -1,12 +1,16 @@
 package com.spacefinance.spacefinance.service;
 
 import com.spacefinance.spacefinance.model.Paragon;
-import com.spacefinance.spacefinance.model.User;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface ParagonService {
-    void saveParagon(User user, Paragon paragon);
+    List<Paragon>allParagons();
+    void saveParagon(Paragon paragon);
+    void removeParagon(Paragon paragon);
+
 //    double sumAllParagon();
 //    double getSumUserParagon();
 //    double getSumUserKasiaParagon();

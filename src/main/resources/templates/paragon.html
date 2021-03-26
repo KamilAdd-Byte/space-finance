@@ -85,11 +85,12 @@
 		<table class="table table-active table-hover table-striped table-responsive-lg" th:border="2">
 			<thead>
 			<tr align="center">
-				<th>id</th>
+				<th>idParagon</th>
 				<th>wydano</th>
 				<th>sklep</th>
 				<th>kto</th>
-				<th>kiedy</th>
+				<th>time</th>
+				<th>date</th>
 				<th>opcje</th>
 				<!--				<th>Kategoria</th>-->
 			</tr>
@@ -99,11 +100,12 @@
 				<td th:text="${paragon.id}"></td>
 				<td th:text="${paragon.price}"></td>
 				<td th:text="${paragon.shopName.description}"></td>
-				<td th:text="${paragon}"></td>
-				<td th:text="${paragon.getAudit().create}"></td>
+				<td th:text="${paragon.user}"></td>
+				<td th:text="${paragon.time}"></td>
+				<td th:text="${paragon.date}"></td>
 				<td>
 					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>
-					<a class="btn btn-danger" th:href="@{/remove/{id}(id=${paragon.id})}">Usuń</a>
+					<a class="btn btn-danger" th:href="@{/remove/{paragon}(paragon=${paragon.id})}">Usuń</a>
 				</td>
 			</tr>
 			</tbody>
