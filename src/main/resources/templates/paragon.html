@@ -24,6 +24,14 @@
             font-size: 22px;
             text-align: center;
         }
+		#title{
+			float: right;
+			background-position: right;
+		}
+		#description{
+			animation-duration: inherit;
+			padding: 10px;
+		}
         #content {
             padding: 20px;
             font-size: 16px;
@@ -72,13 +80,13 @@
 			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
 			<a class="btn btn-warning" th:href="@{/paragon_info}">Dodaj paragon</a>
 <!--			<a class="btn btn-outline-danger" th:href="@{/sum}">Raport</a>-->
-			<div align="right">
+			<div id="title">
 				<span class="badge badge-pill badge-warning">Strefa zakupów</span>
 			</div>
 		</div>
 
 	</div>
-	<div align="left">
+	<div id="description">
 		<h6><i>Historia zakupów</i></h6>
 	</div>
 	<div align="center" id="content">
