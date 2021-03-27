@@ -44,7 +44,7 @@ public class CarController {
         model.addAttribute("message", "Dodano rekord!");
         return "redirect:/car";
     }
-     @GetMapping("/remove/{car}")
+     @GetMapping("car/remove/{car}")
     public String removeParagonById(@PathVariable("car") Car car, Model model) {
         carService.removeParagon(car);
         model.addAttribute("message", "Usunięto pomyślnie!");

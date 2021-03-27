@@ -112,7 +112,7 @@
 				<td th:text="${paragon.time}"></td>
 				<td th:text="${paragon.date}"></td>
 				<td>
-					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>
+					<a class="btn btn-primary" th:href="@{paragon/update/{id}(id=${paragon.id})}">Edytuj</a>
 					<a class="btn btn-danger" th:href="@{paragon/remove/{paragon}(paragon=${paragon.id})}">Usuń</a>
 				</td>
 			</tr>

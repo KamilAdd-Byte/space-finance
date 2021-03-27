@@ -38,7 +38,7 @@ public class TravelController {
         model.addAttribute("pomyślnie","pomyślnie");
         return "redirect:/travel";
     }
-    @GetMapping("/remove/{travel}")
+    @GetMapping("travel/remove/{travel}")
     public String removeParagonById(@PathVariable("travel") Travel travel, Model model) {
         travelService.removeTravel(travel);
         model.addAttribute("message", "Usunięto pomyślnie!");

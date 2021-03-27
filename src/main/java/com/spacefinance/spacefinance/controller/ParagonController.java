@@ -59,7 +59,7 @@ public class ParagonController {
         return "redirect:/paragon";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("paragon/update/{id}")
     public String updateParagonById(@PathVariable("id") String id, Paragon paragon, Model model) {
         paragonService.updateParagon(id,paragon);
         model.addAttribute("message", "Update pomyślnie!");

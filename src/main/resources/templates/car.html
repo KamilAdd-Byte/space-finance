@@ -79,7 +79,7 @@
 		<div class="container-fluid">
 			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
 			<a class="btn btn-warning" th:href="@{/car_info}">Dodaj paliffko</a>
-			<!--			<a class="btn btn-outline-danger" th:href="@{/sum}">Raport</a>-->
+			<a class="btn btn-outline-danger" th:href="@{/carCare_info}">Pielęgnacja</a>
 			<div id="title">
 				<span class="badge badge-pill badge-warning">Strefa samochodu</span>
 			</div>
@@ -111,10 +111,10 @@
 				<td th:text="${car.gasStation.name()}"></td>
 				<td th:text="${car.time}"></td>
 				<td th:text="${car.date}"></td>
-<!--				<td>-->
-<!--&lt;!&ndash;					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>&ndash;&gt;-->
-<!--					<a class="btn btn-danger" th:href="@{/remove/{car}(car=${car.id})}">Usuń</a>-->
-<!--				</td>-->
+				<td>
+<!--					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>-->
+					<a class="btn btn-danger" th:href="@{car/remove/{car}(car=${car.id})}">Usuń</a>
+				</td>
 			</tr>
 			</tbody>
 		</table>
