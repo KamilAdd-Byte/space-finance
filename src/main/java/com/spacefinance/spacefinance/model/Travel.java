@@ -5,11 +5,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Setter
 @Getter
@@ -31,4 +32,13 @@ public class Travel {
 
     @Column(name = "days")
     private int numberDays;
+
+    @Column(name = "date")
+    private LocalDate date = LocalDate.now();
+
+    @Column(name = "time")
+    private LocalTime time = LocalTime.now();
+
+
+
 }

@@ -78,7 +78,7 @@
 	<div id="navi">
 		<div class="container-fluid">
 			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
-			<a class="btn btn-warning" th:href="@{/paragon_info}">Dodaj paragon</a>
+			<a class="btn btn-warning" th:href="@{/travel_info}">Dodaj podróż</a>
 			<!--			<a class="btn btn-outline-danger" th:href="@{/sum}">Raport</a>-->
 			<div id="title">
 				<span class="badge badge-pill badge-warning">Strefa podróży</span>
@@ -94,42 +94,42 @@
 			<thead>
 			<tr align="center">
 				<!--				<th>idParagon</th>-->
-				<th>Wydano</th>
-				<th>Sklep</th>
-				<th>Kto</th>
-				<th>Godzina</th>
+				<th>Nazwa</th>
+				<th>Kategoria</th>
+				<th>Czas trwania</th>
 				<th>Data</th>
-				<th>Opcje</th>
+				<th>Godzina</th>
+<!--				<th>Opcje</th>-->
 				<!--				<th>Kategoria</th>-->
 			</tr>
 			</thead>
 			<tbody>
-			<tr th:align="center" th:each="paragon: ${listAllParagon}">
+			<tr th:align="center" th:each="travel: ${allTravel}">
 				<!--				<td th:text="${paragon.id}"></td>-->
-				<td th:text="${paragon.price}"></td>
-				<td th:text="${paragon.shopName.description}"></td>
-				<td th:text="${paragon.user}"></td>
-				<td th:text="${paragon.time}"></td>
-				<td th:text="${paragon.date}"></td>
-				<td>
-					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>
-					<a class="btn btn-danger" th:href="@{/remove/{paragon}(paragon=${paragon.id})}">Usuń</a>
-				</td>
+				<td th:text="${travel.name}"></td>
+				<td th:text="${travel.category.name()}"></td>
+				<td th:text="${travel.numberDays}"></td>
+				<td th:text="${travel.date}"></td>
+				<td th:text="${travel.time}"></td>
+<!--				<td>-->
+<!--					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>-->
+<!--					<a class="btn btn-danger" th:href="@{/remove/{paragon}(paragon=${paragon.id})}">Usuń</a>-->
+<!--				</td>-->
 			</tr>
 			</tbody>
 		</table>
-		<div align="right">
-			<form th:object="${sum}">
-				<fieldset>
-					<legend>
-						<label>
-							<h3>Całkowita suma <span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
-							<h5>Ilość paragonów <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
-						</label>
-					</legend>
-				</fieldset>
-			</form>
-		</div>
+<!--		<div align="right">-->
+<!--			<form th:object="${sum}">-->
+<!--				<fieldset>-->
+<!--					<legend>-->
+<!--						<label>-->
+<!--							<h3>Całkowita suma <span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>-->
+<!--							<h5>Ilość paragonów <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>-->
+<!--						</label>-->
+<!--					</legend>-->
+<!--				</fieldset>-->
+<!--			</form>-->
+<!--		</div>-->
 		</form>
 	</div>
 	</div>

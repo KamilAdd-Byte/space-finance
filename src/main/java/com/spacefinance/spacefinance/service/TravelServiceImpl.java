@@ -18,4 +18,9 @@ public class TravelServiceImpl implements TravelService {
     public List<Travel> allTravel() {
         return this.travelRepository.findAll();
     }
+
+    @Override
+    public void addTravel(Travel travel) {
+        this.travelRepository.save(travel);
+    }
 }

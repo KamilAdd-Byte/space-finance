@@ -86,93 +86,70 @@
 <div id="container">
 	<nav id="menu" class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand">Strefa zakupów</a>
+			<a class="navbar-brand">Strefa podróży</a>
 		</div>
 	</nav>
 	<div id="navi">
 		<div class="container-fluid">
 			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
-			<a class="btn btn-outline-warning" th:href="@{/paragon}">Strefa zakupów</a>
+			<a class="btn btn-outline-warning" th:href="@{/travel}">Strefa podróży</a>
 		</div>
 	</div>
 	<main>
 		<div align="center" id="content">
-			<h1 align="center">Wprowadź nowy paragon</h1>
-			<form action="#" method="POST" th:action="@{/save_paragon}" th:object="${paragon}">
-				<div align="center">
-					<fieldset>
-						<legend>Wydano</legend>
-						<div id="price" class="input-group mb-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text">PLN</span>
-								<span class="input-group-text">0.00</span>
-							</div>
-							<p th:errors="*{price}" th:if="${#fields.hasErrors('price')}">Title errors</p>
-							<input name="description" size="20%" th:errorclass="'Bdc(red)'" th:field="*{price}" type="text">
-						</div>
-					</fieldset>
-				</div>
+			<h1 align="center">Wprowadź dane podróży</h1>
+			<form action="#" method="POST" th:action="@{/save_travel}" th:object="${travel}">
+
 				<!--					tu zaczyna sie lista sklepów-->
-				<legend>Sklep</legend>
+				<fieldset>
+					<legend> Nazwa </legend>
+					<label>
+						<input th:errorclass="'Bdc(red)'" name="description" size="100%" th:field="*{name}" type="text">
+					</label>
+				</fieldset>
+
+				<legend>Typ</legend>
 				<div class="form-check">
 					<div id="first-group">
-						<label class="btn btn-secondary">BIEDRONKA
-							<input autocomplete="off" id="option1" name="options" th:field="*{shopName}" type="radio"
-								   value="BIEDRONKA">
+						<label class="btn btn-secondary">Rodzinny
+							<input autocomplete="off" id="option1" name="options" th:field="*{category}" type="radio"
+								   value="FAMILY">
 						</label>
-						<label class="btn btn-secondary">LIDL
-							<input autocomplete="off" id="option2" name="options" th:field="*{shopName}" type="radio"
-								   value="LIDL">
-						</label>
-						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option3" name="options" th:field="*{shopName}" type="radio"
-								   value="GROSZEK"> GROSZEK
+						<label class="btn btn-secondary">Góry
+							<input autocomplete="off" id="option2" name="options" th:field="*{category}" type="radio"
+								   value="MOUNTAIN">
 						</label>
 						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option4" name="options" th:field="*{shopName}" type="radio"
-								   value="POLSKA_CHATA"> POLSKA CHATA
+							<input autocomplete="off" id="option3" name="options" th:field="*{category}" type="radio"
+								   value="FRIENDS"> Przyjaciele
+						</label>
+						<label class="btn btn-secondary">
+							<input autocomplete="off" id="option4" name="options" th:field="*{category}" type="radio"
+								   value="WATER"> Morze/Jezioro
 						</label>
 					</div>
 					<div id="second-group">
 						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option5" name="options" th:field="*{shopName}" type="radio"
-								   value="INTERMARCHE"> INTERMARCHE
+							<input autocomplete="off" id="option5" name="options" th:field="*{category}" type="radio"
+								   value="SAILINGE"> Żeglowanie
 						</label>
 						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option6" name="options" th:field="*{shopName}" type="radio"
-								   value="AUCHAN"> AUCHAN
-						</label>
-						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option7" name="options" th:field="*{shopName}" type="radio"
-								   value="ZABKA"> ŻABKA
-						</label>
-						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option8" name="options" th:field="*{shopName}" type="radio"
-								   value="SPOLEM"> SPOŁEM
-						</label>
-						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option9" name="options" th:field="*{shopName}" type="radio"
-								   value="MEAT"> NASZE MIĘSO
-						</label>
-						<label class="btn btn-secondary">
-							<input autocomplete="off" id="option10" name="options" th:field="*{shopName}" type="radio"
-								   value="INNY"> INNY
+							<input autocomplete="off" id="option6" name="options" th:field="*{category}" type="radio"
+								   value="OUTING"> Wycieczka
 						</label>
 					</div>
 				</div>
 				<fieldset>
-					<legend>Kto płacił</legend>
-					<input  id="1" name="id" th:field="*{id}" th:object="${user}" type="radio" value="1"> <label for="1">
-					Kamil</label>
-					<input id="2" name="id" th:field="*{id}" th:object="${user}" type="radio" value="2"> <label for="2">
-					Kasia</label>
+					<legend> Ilość dni </legend>
+					<label>
+						<input th:errorclass="'Bdc(red)'" name="description" size="100%" th:field="*{numberDays}" type="number">
+					</label>
 				</fieldset>
-
 				<button class="btn btn-lg btn-outline-dark" type="submit"><svg class="bi bi-basket2" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
 																			   xmlns="http://www.w3.org/2000/svg">
 					<path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
 					<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
-				</svg> Dodaj paragonik</button>
+				</svg> Dodaj podróż</button>
 			</form>
 		</div>
 	</main>
