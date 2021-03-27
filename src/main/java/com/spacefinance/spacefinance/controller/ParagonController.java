@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ParagonController {
 
+    @Autowired
     private final ParagonServiceImpl paragonService;
 
-    @Autowired
+
     public ParagonController(ParagonServiceImpl paragonService) {
         this.paragonService = paragonService;
     }
@@ -51,7 +52,7 @@ public class ParagonController {
 //        return "sum";
 //    }
 
-    @GetMapping("/remove/{paragon}")
+    @GetMapping("/paragon/remove/{paragon}")
     public String removeParagon(@PathVariable("paragon") Paragon paragon, Model model) {
         paragonService.removeParagon(paragon);
         model.addAttribute("message", "Usunięto pomyślnie!");
