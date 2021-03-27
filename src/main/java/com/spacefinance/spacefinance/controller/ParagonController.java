@@ -3,24 +3,22 @@ package com.spacefinance.spacefinance.controller;
 
 
 import com.spacefinance.spacefinance.model.Paragon;
-import com.spacefinance.spacefinance.service.ParagonService;
+import com.spacefinance.spacefinance.service.ParagonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ParagonController {
 
-    @Autowired
-    private final ParagonService paragonService;
+    private final ParagonServiceImpl paragonService;
 
-    public ParagonController(ParagonService paragonService) {
+    @Autowired
+    public ParagonController(ParagonServiceImpl paragonService) {
         this.paragonService = paragonService;
     }
+
 
     @GetMapping("/paragon")
     public String allUser(Model model) {
@@ -54,7 +52,7 @@ public class ParagonController {
 //    }
 
     @GetMapping("/remove/{paragon}")
-    public String removeParagonById(@PathVariable("paragon") Paragon paragon, Model model) {
+    public String removeParagon(@PathVariable("paragon") Paragon paragon, Model model) {
         paragonService.removeParagon(paragon);
         model.addAttribute("message", "Usunięto pomyślnie!");
         return "redirect:/paragon";

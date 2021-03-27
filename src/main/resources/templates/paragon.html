@@ -99,7 +99,7 @@
 				<th>Kto</th>
 				<th>Godzina</th>
 				<th>Data</th>
-				<th>Opcje</th>
+<!--				<th>Opcje</th>-->
 				<!--				<th>Kategoria</th>-->
 			</tr>
 			</thead>
@@ -111,10 +111,10 @@
 				<td th:text="${paragon.user}"></td>
 				<td th:text="${paragon.time}"></td>
 				<td th:text="${paragon.date}"></td>
-				<td>
-					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>
-					<a class="btn btn-danger" th:href="@{/remove/{paragon}(paragon=${paragon.id})}">Usuń</a>
-				</td>
+<!--				<td>-->
+<!--					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>-->
+<!--					<a class="btn btn-danger" th:href="@{/remove/{paragon}(paragon=${paragon.id})}">Usuń</a>-->
+<!--				</td>-->
 			</tr>
 			</tbody>
 		</table>

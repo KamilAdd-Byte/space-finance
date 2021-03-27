@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -35,6 +36,12 @@ public class TravelController {
     public String saveTravel(@ModelAttribute("travel") Travel travel, Model model){
         travelService.addTravel(travel);
         model.addAttribute("pomyślnie","pomyślnie");
+        return "redirect:/travel";
+    }
+    @GetMapping("/remove/{travel}")
+    public String removeParagonById(@PathVariable("travel") Travel travel, Model model) {
+        travelService.removeTravel(travel);
+        model.addAttribute("message", "Usunięto pomyślnie!");
         return "redirect:/travel";
     }
 }

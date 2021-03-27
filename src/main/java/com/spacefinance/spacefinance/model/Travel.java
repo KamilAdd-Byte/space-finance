@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 @Setter
 @Getter
@@ -39,6 +40,16 @@ public class Travel {
     @Column(name = "time")
     private LocalTime time = LocalTime.now();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Travel)) return false;
+        Travel travel = (Travel) o;
+        return numberDays == travel.numberDays && Objects.equals(id, travel.id) && Objects.equals(name, travel.name) && category == travel.category && Objects.equals(date, travel.date) && Objects.equals(time, travel.time);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, category, numberDays, date, time);
+    }
 }

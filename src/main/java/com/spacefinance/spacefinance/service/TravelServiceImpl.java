@@ -23,4 +23,9 @@ public class TravelServiceImpl implements TravelService {
     public void addTravel(Travel travel) {
         this.travelRepository.save(travel);
     }
+
+    @Override
+    public void removeTravel(Travel travel) {
+        this.travelRepository.delete(travel);
+    }
 }

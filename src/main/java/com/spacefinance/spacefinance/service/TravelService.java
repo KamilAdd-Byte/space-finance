@@ -9,4 +9,5 @@ import java.util.List;
 public interface TravelService {
     List<Travel>allTravel();
     void addTravel(Travel travel);
+    void removeTravel(Travel travel);
 }
