@@ -1,4 +1,4 @@
-#Description
+# Description
 
 Space Finance is an application designed for couples who would like to have an insight into their expenses
 home-type shopping, delivery lunches or trip planning.
@@ -6,12 +6,12 @@ The project is based on spring boot with the H2 database and supporting the stru
 in the dao layer are HQL queries that have previously been tested by JUnit 5.
 The view layer is supported by thymleaf and bootstrap 4 and CSS shaping GUI.
 
-#Technologies:
+## Technologies:
 
 backend: Spring-boot, Java, Thymleaf.
 frontend: Bootstrap, Css.
 
-#Functionalities:
+## Functionalities:
 
 - adding a 'receipt': price, shop name, who was paying;
 - object deletion and modification;
@@ -19,4 +19,4 @@ frontend: Bootstrap, Css.
   -calculation of the number of 'receipts';
 - list of all operations;
 
-#Construction of the project: 
+## Construction of the project: 
