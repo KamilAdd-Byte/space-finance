@@ -18,13 +18,13 @@ public class IndexController {
 
     @GetMapping("/")
     public String homePage(Model model){
-        model.addAttribute("all",financeModel.sumAllExpenditure());
+        model.addAttribute("all",financeModel.sizeListAllOperation());
         model.addAttribute("sumAll",financeModel.allExpenditure());
         return "index";
     }
     @GetMapping("/index")
     public String get(Model model){
-        model.addAttribute("all",financeModel.sumAllExpenditure());
+        model.addAttribute("all",financeModel.sizeListAllOperation());
         model.addAttribute("sumAll",financeModel.allExpenditure());
         return "index";
     }

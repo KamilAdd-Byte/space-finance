@@ -78,8 +78,7 @@
 	<div id="navi">
 		<div class="container-fluid">
 			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
-			<a class="btn btn-warning" th:href="@{/car_info}">Dodaj paliffko</a>
-			<a class="btn btn-outline-danger">Pielęgnacja</a>
+			<a class="btn btn-warning" th:href="@{/car_info}">Dodaj wydatek</a>
 			<div id="title">
 				<span class="badge badge-pill badge-warning">Strefa samochodu</span>
 			</div>
@@ -96,7 +95,8 @@
 				<!--				<th>idParagon</th>-->
 				<th>Wydano</th>
 				<th>Kto</th>
-				<th>Stacja</th>
+				<th>Typ</th>
+				<th>Info</th>
 				<th>Godzina</th>
 				<th>Data</th>
 <!--				<th>Opcje</th>-->
@@ -108,7 +108,8 @@
 				<!--				<td th:text="${paragon.id}"></td>-->
 				<td th:text="${car.price}"></td>
 				<td th:text="${car.user}"></td>
-				<td th:text="${car.gasStation.name()}"></td>
+				<td th:text="${car.type.getDescription()}"></td>
+				<td th:text="${car.description}"></td>
 				<td th:text="${car.time}"></td>
 				<td th:text="${car.date}"></td>
 				<td>

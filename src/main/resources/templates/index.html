@@ -11,7 +11,7 @@
 </head>
 <style>
 	body{
-		background-image: url("https://scontent.fpoz4-1.fna.fbcdn.net/v/t1.0-9/83850221_3490551061015625_5319087520288342016_o.jpg?_nc_cat=107&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=e5bxS4svvkUAX98s8T3&_nc_ht=scontent.fpoz4-1.fna&oh=8023d1799ad968bd246dbc337482c3dc&oe=60835F37");
+
 	}
     #container {
         width: auto;
@@ -19,6 +19,17 @@
         margin-right: auto;
     }
 
+	#sizeOperation{
+        padding: 10px;
+		float: left;
+	}
+	#allExpenditure{
+        padding: 10px;
+		float: left;
+	}
+	#carousel-example-generic{
+		clear: both;
+	}
     input[type=radio]:checked + label:before {
         color: #de0f0f;
         line-height: 15px;
@@ -48,18 +59,12 @@
         padding: 10px;
     }
 
+	#option{
+		padding-bottom: 5px;
+	}
     #container-fluid{
 		padding: 5px;
 	}
-    table {
-        align-content: baseline;
-        padding: 20px;
-    }
-
-    .table:hover {
-        padding: 10px;
-    }
-
     legend {
         color: chocolate;
         text-decoration: black;
@@ -83,7 +88,7 @@
 		</div>
 	</nav>
 	<div id="navi">
-		<div class="container-fluid">
+		<div id="option" class="container-fluid">
 			<a class="btn btn-outline-primary" th:href="@{/paragon}">Strefa zakupów</a>
 			<a class="btn btn-outline-primary" th:href="@{/car}">Strefa samochodu</a>
 			<a class="btn btn-outline-primary" >Strefa mieszkania</a>
@@ -91,27 +96,51 @@
 			<a class="btn btn-outline-primary" >Strefa kontaktów</a>
 		</div>
 	</div>
-	<div align="left">
+	<div id="sizeOperation">
 		<form th:object="${all}">
 			<fieldset>
 				<legend>
 					<label>
-						<h3>Liczba wprowadzonych paragonów <span th:object="${all}" th:text="${all}" class="badge badge-dark">Całkowita!</span></h3>
-						<h3>Koszty całkowite <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Całkowita!</span></h3>
-
+						<h3>Liczba wprowadzonych paragonów <span th:object="${all}" th:text="${all}" class="badge badge-primary">Całkowita!</span></h3>
 					</label>
 				</legend>
 			</fieldset>
 		</form>
 	</div>
-<!--	<div>-->
-<!--		<img width="700" height="600" src="https://scontent.fpoz4-1.fna.fbcdn.net/v/t1.0-9/83850221_3490551061015625_5319087520288342016_o.jpg?_nc_cat=107&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=e5bxS4svvkUAX98s8T3&_nc_ht=scontent.fpoz4-1.fna&oh=8023d1799ad968bd246dbc337482c3dc&oe=60835F37">-->
-<!--	</div>-->
+	<div id="allExpenditure">
+		<form th:object="${sumAll}">
+			<fieldset>
+				<legend>
+					<label>
+						<h3>Koszty całkowite <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Całkowita!</span></h3>
+					</label>
+				</legend>
+			</fieldset>
+		</form>
+	</div>
+	<div id="przykladowaKaruzela3" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#przykladowaKaruzela3" data-slide-to="0" class="active"></li>
+			<li data-target="#przykladowaKaruzela3" data-slide-to="1"></li>
+			<li data-target="#przykladowaKaruzela3" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="d-block w-100" src="https://scontent.fpoz4-1.fna.fbcdn.net/v/t1.0-9/104456073_3127371074009038_2071631359904049858_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=_vXmyzdeOkEAX-ObeZU&_nc_ht=scontent.fpoz4-1.fna&oh=a7ecc3afa2398e03ee740a51f6698e8a&oe=6084C341" alt="Pierwszy slajd">
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#przykladowaKaruzela3" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Poprzedni</span>
+		</a>
+		<a class="carousel-control-next" href="#przykladowaKaruzela3" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Następny</span>
+		</a>
+	</div>
 
-
-</div>
 <div class="navbar navbar-light bg-dark" id="footer">
-	<a href="https://github.com/KamilAdd-Byte/Note-App">Paragonik KamilAdd-Byte</a>
+	<a href="https://github.com/KamilAdd-Byte/Note-App">Space-Finance project by KamilAdd-Byte</a>
 </div>
 </div>
 </body>

@@ -32,8 +32,11 @@ public class Car {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "shop_name")
-    private GasStation gasStation;
+    @Column(name = "type")
+    private Type type;
+
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "date")
     private LocalDate date = LocalDate.now();
@@ -46,11 +49,11 @@ public class Car {
         if (this == o) return true;
         if (!(o instanceof Car)) return false;
         Car car = (Car) o;
-        return Double.compare(car.price, price) == 0 && Objects.equals(id, car.id) && Objects.equals(user, car.user) && gasStation == car.gasStation && Objects.equals(date, car.date) && Objects.equals(time, car.time);
+        return Double.compare(car.price, price) == 0 && id.equals(car.id) && user.equals(car.user) && type == car.type && Objects.equals(description, car.description) && Objects.equals(date, car.date) && Objects.equals(time, car.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, price, gasStation, date, time);
+        return Objects.hash(id, user, price, type, description, date, time);
     }
 }

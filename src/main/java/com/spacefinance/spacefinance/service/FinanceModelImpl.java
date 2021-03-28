@@ -15,16 +15,21 @@ public class FinanceModelImpl implements FinanceModel {
     private ParagonDao paragonRepository;
 
     @Autowired
-    private CarDao carDao;
+    private CarDao carRepository;
+
+    /**
+     * @apiNote Fuel and Paragon(sizeListAllOperation) size it's size two list
+     * @return size two list and sum Fuel and Paragon getPrice()
+     */
 
     @Override
-    public int sumAllExpenditure() {
+    public int sizeListAllOperation() {
         int total = 0;
         List<Paragon> paragons = paragonRepository.findAll();
-        List<Car> fuel = carDao.findAll();
-        int sizeP = paragons.size();
-        int sizeF = fuel.size();
-        return total + sizeF + sizeP;
+        List<Car> fuel = carRepository.findAll();
+        int sizeParagon = paragons.size();
+        int sizeFuel = fuel.size();
+        return total + sizeFuel + sizeParagon;
     }
 
     @Override
@@ -34,12 +39,11 @@ public class FinanceModelImpl implements FinanceModel {
         for (Paragon paragon : paragons) {
             total += paragon.getPrice();
         }
-        List<Car> fuel = carDao.findAll();
+        List<Car> fuel = carRepository.findAll();
         for (Car car : fuel) {
-            total+=car.getPrice();
+            total += car.getPrice();
         }
         return total;
     }
-
 }
 
