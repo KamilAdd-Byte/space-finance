@@ -96,28 +96,6 @@
 			<a class="btn btn-outline-primary" >Strefa kontaktów</a>
 		</div>
 	</div>
-	<div id="sizeOperation">
-		<form th:object="${all}">
-			<fieldset>
-				<legend>
-					<label>
-						<h3>Liczba wprowadzonych paragonów <span th:object="${all}" th:text="${all}" class="badge badge-primary">Całkowita!</span></h3>
-					</label>
-				</legend>
-			</fieldset>
-		</form>
-	</div>
-	<div id="allExpenditure">
-		<form th:object="${sumAll}">
-			<fieldset>
-				<legend>
-					<label>
-						<h3>Koszty całkowite <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Całkowita!</span></h3>
-					</label>
-				</legend>
-			</fieldset>
-		</form>
-	</div>
 	<div id="przykladowaKaruzela3" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#przykladowaKaruzela3" data-slide-to="0" class="active"></li>
@@ -138,7 +116,28 @@
 			<span class="sr-only">Następny</span>
 		</a>
 	</div>
-
+	<div id="sizeOperation">
+		<form th:object="${all}">
+			<fieldset>
+				<legend>
+					<label>
+						<h9>Liczba wprowadzonych paragonów <span th:object="${all}" th:text="${all}" class="badge badge-primary">Całkowita!</span></h9>
+					</label>
+				</legend>
+			</fieldset>
+		</form>
+	</div>
+	<div id="allExpenditure">
+		<form th:object="${sumAll}">
+			<fieldset>
+				<legend>
+					<label>
+						<h9>Koszty całkowite <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Całkowita!</span></h9>
+					</label>
+				</legend>
+			</fieldset>
+		</form>
+	</div>
 <div class="navbar navbar-light bg-dark" id="footer">
 	<a href="https://github.com/KamilAdd-Byte/Note-App">Space-Finance project by KamilAdd-Byte</a>
 </div>
