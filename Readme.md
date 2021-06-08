@@ -1,6 +1,6 @@
 ## Table of contents
 * [Description](#description)
-* [Database use](#mongoDB Atlas Database)
+* [Database use](#mongoDB)
 * [Technologies](#technologies)
 * [Functionalities](#functionalities)
 * [Deploy](#deploy)
