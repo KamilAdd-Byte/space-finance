@@ -16,7 +16,7 @@ The view layer is supported by thymeleaf and bootstrap 4 and CSS shaping GUI.
 This application is programmed for two people (couple). User adds a receipt (fields: price, place and date operation).
 
 
-## MongoDB Atlas Database:
+## MongoDB:
 
 This application connect with MongoDb Atlas.
 
