@@ -11,14 +11,16 @@
 </head>
 <style>
 	body{
-
+		background-color: lavender;
 	}
     #container {
         width: auto;
         margin-left: auto;
         margin-right: auto;
     }
-
+	#information {
+		background-color: darkgrey;
+	}
 	#sizeOperation{
         padding: 10px;
 		float: left;
@@ -26,6 +28,12 @@
 	#allExpenditure{
         padding: 10px;
 		float: left;
+	}
+	#card-body {
+
+	}
+	#slide{
+		background-size: 40px;
 	}
 	#carousel-example-generic{
 		clear: both;
@@ -51,6 +59,7 @@
       	border-color: cornflowerblue;
     }
 
+
     #second-group {
         clear: both;
     }
@@ -59,6 +68,12 @@
         padding: 10px;
     }
 
+	#information{
+		flex-flow: wrap;
+	}
+	#summary {
+		float: right;
+	}
 	#option{
 		padding-bottom: 5px;
 	}
@@ -74,7 +89,6 @@
     #footer {
         clear: both;
         padding: 20px;
-        background-color: #cd10db;
         font-size: 22px;
         color: white;
         alignment-baseline: center;
@@ -82,64 +96,102 @@
     }
 </style>
 <div id="container">
-	<nav id="menu" class="navbar navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand">Space finance</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Space Family Finance</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Info</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Dropdown link
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
 		</div>
 	</nav>
 	<div id="navi">
-		<div id="option" class="container-fluid">
-			<a class="btn btn-outline-primary" th:href="@{/paragon}">Strefa zakupów</a>
-			<a class="btn btn-outline-primary" th:href="@{/car}">Strefa samochodu</a>
-			<a class="btn btn-outline-primary" >Strefa mieszkania</a>
-			<a class="btn btn-outline-primary" th:href="@{/travel}">Strefa turystyki</a>
-			<a class="btn btn-outline-primary" >Strefa kontaktów</a>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body" id="card-body">
+						<h5 class="card-title"><b>Special space for shop expenses</b></h5>
+						<p class="card-text">You added the paragons on your application.</p>
+						<a class="btn btn-outline-primary" th:href="@{/paragon}">Space of shop</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"><b>Special space on your cars expenses</b></h5>
+						<p class="card-text">Controlling expenses on your car. Refueling, care and accessories on car</p>
+						<a class="btn btn-outline-primary" th:href="@{/car}">Strefa samochodu</a>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
-	<div id="przykladowaKaruzela3" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#przykladowaKaruzela3" data-slide-to="0" class="active"></li>
-			<li data-target="#przykladowaKaruzela3" data-slide-to="1"></li>
-			<li data-target="#przykladowaKaruzela3" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img class="d-block w-100" src="https://scontent.fpoz4-1.fna.fbcdn.net/v/t1.6435-9/118514898_3338968066182670_456593486448355235_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=e3f864&_nc_ohc=Os_lq0bx4X0AX8tQb1b&_nc_ht=scontent.fpoz4-1.fna&oh=4af9d11433fa05f446de498a8aa02ab3&oe=60E7FF7A" alt="Pierwszy slajd">
+	<div>
+		<div class="jumbotron" id="information">
+			<h1 class="display-4">Welcome to Space finance!</h1>
+			<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+			<hr class="my-4">
+			<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" th:href="@{/infoApi}" role="button">Learn more</a>
+			</p>
+		</div>
+		<div class="card border-light mb-3" style="max-width: 18rem;" id="summary">
+			<div class="card-header">Summary your expenses</div>
+			<div class="card-body">
+				<h5 class="card-title">Total</h5>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				<div id="sizeOperation">
+					<form th:object="${all}">
+						<fieldset>
+							<legend>
+								<label>
+									<h9>Sum all paragons <span th:object="${all}" th:text="${all}" class="badge badge-primary">Total!</span></h9>
+								</label>
+							</legend>
+						</fieldset>
+					</form>
+				</div>
+				<div id="allExpenditure">
+					<form th:object="${sumAll}">
+						<fieldset>
+							<legend>
+								<label>
+									<h9>Total costs <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Total!</span></h9>
+								</label>
+							</legend>
+						</fieldset>
+					</form>
+				</div>
 			</div>
 		</div>
-		<a class="carousel-control-prev" href="#przykladowaKaruzela3" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Poprzedni</span>
-		</a>
-		<a class="carousel-control-next" href="#przykladowaKaruzela3" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Następny</span>
-		</a>
+
 	</div>
-	<div id="sizeOperation">
-		<form th:object="${all}">
-			<fieldset>
-				<legend>
-					<label>
-						<h9>Liczba wprowadzonych paragonów <span th:object="${all}" th:text="${all}" class="badge badge-primary">Całkowita!</span></h9>
-					</label>
-				</legend>
-			</fieldset>
-		</form>
-	</div>
-	<div id="allExpenditure">
-		<form th:object="${sumAll}">
-			<fieldset>
-				<legend>
-					<label>
-						<h9>Koszty całkowite <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Całkowita!</span></h9>
-					</label>
-				</legend>
-			</fieldset>
-		</form>
-	</div>
+
 <div class="navbar navbar-light bg-dark" id="footer">
-	<a href="https://github.com/KamilAdd-Byte/Note-App">Space-Finance project by KamilAdd-Byte</a>
+	<a href="https://github.com/KamilAdd-Byte/space-finance">Space-Finance project by KamilAdd-Byte</a>
 </div>
 </div>
 </body>

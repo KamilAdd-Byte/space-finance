@@ -1,7 +1,8 @@
-package com.spacefinance.spacefinance.service;
+package com.spacefinance.spacefinance.service.impl;
 
 import com.spacefinance.spacefinance.model.Paragon;
 import com.spacefinance.spacefinance.repository.ParagonDao;
+import com.spacefinance.spacefinance.service.ParagonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

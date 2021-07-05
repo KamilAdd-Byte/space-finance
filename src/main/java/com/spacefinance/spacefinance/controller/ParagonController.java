@@ -3,7 +3,7 @@ package com.spacefinance.spacefinance.controller;
 
 
 import com.spacefinance.spacefinance.model.Paragon;
-import com.spacefinance.spacefinance.service.ParagonServiceImpl;
+import com.spacefinance.spacefinance.service.impl.ParagonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,7 +1,8 @@
-package com.spacefinance.spacefinance.service;
+package com.spacefinance.spacefinance.service.impl;
 
 import com.spacefinance.spacefinance.model.Travel;
 import com.spacefinance.spacefinance.repository.TravelDao;
+import com.spacefinance.spacefinance.service.TravelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

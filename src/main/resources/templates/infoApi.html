@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Paragony" name="description"/>
+  <link rel="shortcut icon" href="https://www.pngarts.com/files/3/Letter-N-Free-PNG-Image.png">
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+  <title>Space family finance</title>
+</head>
+<style>
+  body{
+    background-color: lavender;
+  }
+  #container {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #sizeOperation{
+    padding: 10px;
+    float: left;
+  }
+  #allExpenditure{
+    padding: 10px;
+    float: left;
+  }
+  #card-body {
+
+  }
+  #slide{
+    background-size: 40px;
+  }
+  #carousel-example-generic{
+    clear: both;
+  }
+  input[type=radio]:checked + label:before {
+    color: #de0f0f;
+    line-height: 15px;
+  }
+
+  #menu {
+    padding: 5px;
+    background-color: #cd10db;
+    color: white;
+    letter-spacing: 4px;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  #content {
+    padding: 30px;
+    font-size: 22px;
+    border-style: dashed;
+    border-color: cornflowerblue;
+  }
+
+
+  #second-group {
+    clear: both;
+  }
+
+  #navi {
+    padding: 10px;
+  }
+
+  #information{
+    float: left;
+  }
+  #option{
+    padding-bottom: 5px;
+  }
+  #container-fluid{
+    padding: 5px;
+  }
+  legend {
+    color: chocolate;
+    text-decoration: black;
+    font-size: 24px;
+  }
+
+  #footer {
+    clear: both;
+    padding: 20px;
+    font-size: 22px;
+    color: white;
+    alignment-baseline: center;
+    text-align: center;
+  }
+</style>
+<div id="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Space Family Finance</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="navi">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" id="card-body">
+            <h5 class="card-title">Special space for shop expenses</h5>
+            <p class="card-text">You added the paragons on your application.</p>
+            <a class="btn btn-outline-primary" th:href="@{/paragon}">Space of shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><b>Special space on your cars expenses</b></h5>
+            <p class="card-text">Controlling expenses on your car. Refueling, care and accessories on car</p>
+            <a class="btn btn-outline-primary" th:href="@{/car}">Strefa samochodu</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="jumbotron">
+    <h1 class="display-4">Info about functionality</h1>
+    <p class="lead">Space Finance is an application designed for couples who would like to have an insight into their expenses home-type shopping, delivery lunches or trip planning.</p>
+    <hr class="my-4">
+    <p>The view layer is supported by thymeleaf and bootstrap 4 and CSS shaping GUI.
+
+      This application is programmed for two people (couple). User adds a receipt (fields: price, place and date operation).</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+  </div>
+  </div>
+  <div class="navbar navbar-light bg-dark" id="footer">
+    <a href="https://github.com/KamilAdd-Byte/space-finance">Space-Finance project by KamilAdd-Byte</a>
+  </div>
+</div>
+</body>
+</html>
