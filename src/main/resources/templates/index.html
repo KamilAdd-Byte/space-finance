@@ -29,27 +29,10 @@
         padding: 10px;
 		float: left;
 	}
-	#card-body {
 
-	}
-	#slide{
-		background-size: 40px;
-	}
-	#carousel-example-generic{
-		clear: both;
-	}
     input[type=radio]:checked + label:before {
         color: #de0f0f;
         line-height: 15px;
-    }
-
-    #menu {
-        padding: 5px;
-        background-color: #cd10db;
-        color: white;
-        letter-spacing: 4px;
-        font-size: 22px;
-        text-align: center;
     }
 
     #content {
@@ -59,27 +42,24 @@
       	border-color: cornflowerblue;
     }
 
-
-    #second-group {
-        clear: both;
-    }
-
     #navi {
         padding: 10px;
     }
 
-	#information{
-		flex-flow: wrap;
-	}
-	#summary {
-		float: right;
-	}
-	#option{
-		padding-bottom: 5px;
-	}
-    #container-fluid{
-		padding: 5px;
-	}
+    #information {
+        padding: 10px;
+
+    }
+
+    #welcome {
+        size: 40px;
+    }
+
+    #summary {
+        padding: 5px;
+        float: left;
+    }
+
     legend {
         color: chocolate;
         text-decoration: black;
@@ -140,59 +120,34 @@
 				<div class="card">
 					<div class="card-body">
 						<h5 class="card-title"><b>Special space on your cars expenses</b></h5>
-						<p class="card-text">Controlling expenses on your car. Refueling, care and accessories on car</p>
-						<a class="btn btn-outline-primary" th:href="@{/car}">Strefa samochodu</a>
+						<p class="card-text">Controlling expenses on your car. Refueling, care and accessories on
+							car</p>
+						<a class="btn btn-outline-primary" th:href="@{/car}">Space of car</a>
 					</div>
+
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<div>
-		<div class="jumbotron" id="information">
-			<h1 class="display-4">Welcome to Space finance!</h1>
-			<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-			<hr class="my-4">
-			<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-			<p class="lead">
-				<a class="btn btn-primary btn-lg" th:href="@{/infoApi}" role="button">Learn more</a>
-			</p>
-		</div>
-		<div class="card border-light mb-3" style="max-width: 18rem;" id="summary">
-			<div class="card-header">Summary your expenses</div>
-			<div class="card-body">
-				<h5 class="card-title">Total</h5>
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				<div id="sizeOperation">
-					<form th:object="${all}">
-						<fieldset>
-							<legend>
-								<label>
-									<h9>Sum all paragons <span th:object="${all}" th:text="${all}" class="badge badge-primary">Total!</span></h9>
-								</label>
-							</legend>
-						</fieldset>
-					</form>
-				</div>
-				<div id="allExpenditure">
-					<form th:object="${sumAll}">
-						<fieldset>
-							<legend>
-								<label>
-									<h9>Total costs <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Total!</span></h9>
-								</label>
-							</legend>
-						</fieldset>
-					</form>
-				</div>
+		<div id="information">
+			<div class="jumbotron" id="welcome">
+				<h1 class="display-4">Welcome to Space finance!</h1>
+				<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+					attention to featured content or information.</p>
+				<hr class="my-4">
+				<p>It uses utility classes for typography and spacing to space content out within the larger
+					container.</p>
+				<p class="lead">
+					<a class="btn btn-primary btn-lg" role="button" th:href="@{/infoApi}">Learn more</a>
+				</p>
 			</div>
 		</div>
 
+		<div class="navbar navbar-light bg-dark" id="footer">
+			<a href="https://github.com/KamilAdd-Byte/space-finance">Space-Finance project by KamilAdd-Byte</a>
+		</div>
 	</div>
-
-<div class="navbar navbar-light bg-dark" id="footer">
-	<a href="https://github.com/KamilAdd-Byte/space-finance">Space-Finance project by KamilAdd-Byte</a>
-</div>
 </div>
 </body>
 </html>
