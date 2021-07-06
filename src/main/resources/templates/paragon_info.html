@@ -98,6 +98,8 @@
 	<main>
 		<div align="center" id="content">
 			<h6 align="center">Wprowadź nowy paragon</h6>
+			<!--			/*@thymesVar id="paragon" type="com.spacefinance.spacefinance.model.Paragon"*/-->
+			<p th:if="validationMessage"></p>
 			<form action="#" method="POST" th:action="@{/save_paragon}" th:object="${paragon}">
 				<div align="center">
 					<fieldset>
@@ -116,17 +118,21 @@
 				<legend>Sklep</legend>
 				<div class="form-check">
 					<div id="first-group">
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">BIEDRONKA
 							<input autocomplete="off" id="option1" name="options" th:field="*{shopName}" type="radio"
 								   value="BIEDRONKA">
 						</label>
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">LIDL
 							<input autocomplete="off" id="option2" name="options" th:field="*{shopName}" type="radio"
 								   value="LIDL">
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						</label>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option3" name="options" th:field="*{shopName}" type="radio"
 								   value="GROSZEK"> GROSZEK
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						</label>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option4" name="options" th:field="*{shopName}" type="radio"
@@ -134,26 +140,32 @@
 						</label>
 					</div>
 					<div id="second-group">
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option5" name="options" th:field="*{shopName}" type="radio"
 								   value="INTERMARCHE"> INTERMARCHE
 						</label>
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option6" name="options" th:field="*{shopName}" type="radio"
 								   value="AUCHAN"> AUCHAN
 						</label>
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option7" name="options" th:field="*{shopName}" type="radio"
 								   value="ZABKA"> ŻABKA
 						</label>
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option8" name="options" th:field="*{shopName}" type="radio"
 								   value="SPOLEM"> SPOŁEM
 						</label>
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option9" name="options" th:field="*{shopName}" type="radio"
 								   value="MEAT"> NASZE MIĘSO
 						</label>
+						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option10" name="options" th:field="*{shopName}" type="radio"
 								   value="INNY"> INNY
@@ -161,9 +173,11 @@
 					</div>
 				</div>
 				<fieldset>
+					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}" >Title errors</p>
 					<legend>Kto płacił</legend>
 					<input  id="1" name="KAMIL"  th:object="${paragon}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
 					Kamil</label>
+					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}" >Title errors</p>
 					<input id="2" name="KASIA"  th:object="${paragon}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
 					Kasia</label>
 				</fieldset>

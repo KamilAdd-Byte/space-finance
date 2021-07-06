@@ -7,7 +7,12 @@ import com.spacefinance.spacefinance.service.impl.ParagonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ParagonController {
@@ -37,10 +42,13 @@ public class ParagonController {
     }
 
     @PostMapping("/save_paragon")
-    public String saveParagon(@ModelAttribute("paragon") Paragon paragon,
-                              Model model) {
+    public String saveParagon(@Valid @ModelAttribute("paragon") Paragon paragon, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            List<ObjectError> errorList = bindingResult.getAllErrors();
+            errorList.forEach(objectError -> System.out.println(objectError.getDefaultMessage()));
+            return "paragon_info";
+        } else
         paragonService.saveParagon(paragon);
-        model.addAttribute("message", "Dodano paragon!");
         return "redirect:/paragon";
     }
 

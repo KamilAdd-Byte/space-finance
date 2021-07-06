@@ -5,12 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -29,6 +30,7 @@ public class Paragon implements Serializable {
     private String id;
 
     @Column(name = "user")
+    @NotNull(message = "Set fields user Kasia or Kamil!")
     private String user;
 
     @Column(name = "price")
