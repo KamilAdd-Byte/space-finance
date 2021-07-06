@@ -1,4 +1,4 @@
-package com.spacefinance.spacefinance.model;
+package com.spacefinance.spacefinance.enums;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -6,9 +6,9 @@ import lombok.ToString;
 @Getter
 @ToString
 public enum Type {
-    GAS_STATION("Tankowanie"),
-    MECHANIC("Mechanik-naprawa"),
-    CARE("Pielęgnacja");
+    GAS_STATION("Gas-Station"),
+    MECHANIC("Mechanic"),
+    CARE("Care");
 
     private String description;
 

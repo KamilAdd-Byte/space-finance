@@ -1,5 +1,6 @@
 package com.spacefinance.spacefinance.model;
 
+import com.spacefinance.spacefinance.enums.TravelCategory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

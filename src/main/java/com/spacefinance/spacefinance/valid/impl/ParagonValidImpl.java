@@ -1,5 +1,6 @@
-package com.spacefinance.spacefinance.valid;
+package com.spacefinance.spacefinance.valid.impl;
 
+import com.spacefinance.spacefinance.service.valid.Validation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,10 +9,12 @@ import javax.validation.Validator;
 
 @ComponentScan
 @Configuration
-public class ParagonValidation {
+public class ParagonValidImpl implements Validation {
 
+
+    @Override
     @Bean
-    Validator validator(){
+    public Validator validator() {
         return new LocalValidatorFactoryBean();
     }
 }

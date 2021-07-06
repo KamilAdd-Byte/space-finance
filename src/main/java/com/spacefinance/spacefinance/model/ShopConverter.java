@@ -1,5 +1,7 @@
 package com.spacefinance.spacefinance.model;
 
+import com.spacefinance.spacefinance.enums.ShopName;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.util.stream.Stream;

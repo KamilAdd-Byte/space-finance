@@ -1,4 +1,4 @@
-package com.spacefinance.spacefinance.model;
+package com.spacefinance.spacefinance.enums;
 
 public enum TravelCategory {
     FAMILY,

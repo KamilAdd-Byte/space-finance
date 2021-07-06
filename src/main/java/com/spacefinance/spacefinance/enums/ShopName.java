@@ -1,4 +1,4 @@
-package com.spacefinance.spacefinance.model;
+package com.spacefinance.spacefinance.enums;
 
 import lombok.Getter;
 import lombok.ToString;

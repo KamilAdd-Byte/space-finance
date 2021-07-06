@@ -1,4 +1,4 @@
-package com.spacefinance.spacefinance.valid;
+package com.spacefinance.spacefinance.valid.impl;
 
 import com.spacefinance.spacefinance.model.Paragon;
 import org.springframework.beans.factory.annotation.Autowired;
