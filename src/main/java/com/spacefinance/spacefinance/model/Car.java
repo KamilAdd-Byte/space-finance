@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -27,12 +28,14 @@ public class Car {
     private String id;
 
     @Column(name = "user")
+    @NotNull(message = "Set fields user Kasia or Kamil!")
     private String user;
 
     @Column(name = "price")
     private double price;
 
     @Column(name = "type")
+    @NotNull(message = "Set fields type on this operation!")
     private Type type;
 
     @Column(name = "description")

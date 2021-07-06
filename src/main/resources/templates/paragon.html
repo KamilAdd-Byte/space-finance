@@ -2,7 +2,7 @@
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<title>Mister Paragonik</title>
+	<title>Space Family Finance</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<!--	<link href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css" rel="stylesheet">-->
 	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -70,35 +70,59 @@
 </head>
 <body>
 <main>
-	<nav id="menu" class="navbar navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand">Space finance</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Space Family Finance</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Info</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Dropdown link
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
 		</div>
 	</nav>
 	<div id="navi">
 		<div class="container-fluid">
-			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
-			<a class="btn btn-warning" th:href="@{/paragon_info}">Dodaj paragon</a>
+			<a class="btn btn-outline-primary" th:href="@{/index}">Home</a>
+			<a class="btn btn-warning" th:href="@{/paragon_info}">Add expenses</a>
 <!--			<a class="btn btn-outline-danger" th:href="@{/sum}">Raport</a>-->
 			<div id="title">
-				<span class="badge badge-pill badge-warning">Strefa zakupów</span>
+				<span class="badge badge-pill badge-warning">Space shopping</span>
 			</div>
 		</div>
 
 	</div>
 	<div id="description">
-		<h6><i>Historia zakupów</i></h6>
+		<h6><i>History of expenses</i></h6>
 	</div>
 	<div align="center" id="content">
 		<table class="table table-active table-hover table-striped table-responsive-lg" th:border="2">
 			<thead>
 			<tr align="center">
 <!--				<th>idParagon</th>-->
-				<th>Wydano</th>
-				<th>Sklep</th>
-				<th>Kto</th>
-				<th>Godzina</th>
-				<th>Data</th>
+				<th>Price</th>
+				<th>Shop</th>
+				<th>User</th>
+				<th>Hour</th>
+				<th>Date</th>
 <!--				<th>Opcje</th>-->
 				<!--				<th>Kategoria</th>-->
 			</tr>
@@ -112,8 +136,8 @@
 				<td th:text="${paragon.time}"></td>
 				<td th:text="${paragon.date}"></td>
 				<td>
-					<a class="btn btn-primary" th:href="@{paragon/update/{id}(id=${paragon.id})}">Edytuj</a>
-					<a class="btn btn-danger" th:href="@{paragon/remove/{paragon}(paragon=${paragon.id})}">Usuń</a>
+					<a class="btn btn-primary" th:href="@{paragon/update/{id}(id=${paragon.id})}">Edit</a>
+					<a class="btn btn-danger" th:href="@{paragon/remove/{paragon}(paragon=${paragon.id})}">Remove</a>
 				</td>
 			</tr>
 			</tbody>
@@ -123,8 +147,8 @@
 				<fieldset>
 					<legend>
 						<label>
-							<h3>Całkowita suma <span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
-							<h5>Ilość paragonów <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
+							<h3>Summary expenses coast<span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
+							<h5>All operation <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
 						</label>
 					</legend>
 				</fieldset>

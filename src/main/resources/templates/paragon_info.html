@@ -65,6 +65,12 @@
     .table:hover {
         padding: 10px;
     }
+    .Bd {
+        border: solid 1px white;
+    }
+    .Bdc\(red\) {
+        border-color: red !important;
+    }
 
     legend {
         color: chocolate;
@@ -84,38 +90,63 @@
 </style>
 <body>
 <div id="container">
-	<nav id="menu" class="navbar navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand">Strefa zakupów</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Space Family Finance</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Info</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Dropdown link
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
 		</div>
 	</nav>
 	<div id="navi">
 		<div class="container-fluid">
-			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
-			<a class="btn btn-outline-warning" th:href="@{/paragon}">Strefa zakupów</a>
+			<a class="btn btn-outline-primary" th:href="@{/index}">Home</a>
+			<a class="btn btn-outline-warning" th:href="@{/paragon}">History of expenses</a>
 		</div>
 	</div>
 	<main>
 		<div align="center" id="content">
-			<h6 align="center">Wprowadź nowy paragon</h6>
 			<!--			/*@thymesVar id="paragon" type="com.spacefinance.spacefinance.model.Paragon"*/-->
 			<p th:if="validationMessage"></p>
 			<form action="#" method="POST" th:action="@{/save_paragon}" th:object="${paragon}">
-				<div align="center">
-					<fieldset>
-						<legend>Wydano</legend>
-						<div id="price" class="input-group mb-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text">PLN</span>
-								<span class="input-group-text">0.00</span>
+				<div >
+					<div th:align="center">
+						<fieldset>
+							<legend>Add price</legend>
+							<div id="price" class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">PLN</span>
+									<span class="input-group-text">0.00</span>
+								</div>
+								<p th:errors="*{price}" th:if="${#fields.hasErrors('price')}">Title errors</p>
+								<input name="description" size="20%" th:errorclass="'Bdc(red)'" th:field="*{price}" type="text">
 							</div>
-							<p th:errors="*{price}" th:if="${#fields.hasErrors('price')}">Title errors</p>
-							<input name="description" size="20%" th:errorclass="'Bdc(red)'" th:field="*{price}" type="text">
-						</div>
-					</fieldset>
+						</fieldset>
+					</div>
 				</div>
 				<!--					tu zaczyna sie lista sklepów-->
-				<legend>Sklep</legend>
+				<legend>Please select shop</legend>
 				<div class="form-check">
 					<div id="first-group">
 						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
@@ -123,16 +154,16 @@
 							<input autocomplete="off" id="option1" name="options" th:field="*{shopName}" type="radio"
 								   value="BIEDRONKA">
 						</label>
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						<label class="btn btn-secondary">LIDL
 							<input autocomplete="off" id="option2" name="options" th:field="*{shopName}" type="radio"
 								   value="LIDL">
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						</label>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option3" name="options" th:field="*{shopName}" type="radio"
 								   value="GROSZEK"> GROSZEK
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						</label>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option4" name="options" th:field="*{shopName}" type="radio"
@@ -140,32 +171,32 @@
 						</label>
 					</div>
 					<div id="second-group">
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option5" name="options" th:field="*{shopName}" type="radio"
 								   value="INTERMARCHE"> INTERMARCHE
 						</label>
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option6" name="options" th:field="*{shopName}" type="radio"
 								   value="AUCHAN"> AUCHAN
 						</label>
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option7" name="options" th:field="*{shopName}" type="radio"
 								   value="ZABKA"> ŻABKA
 						</label>
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option8" name="options" th:field="*{shopName}" type="radio"
 								   value="SPOLEM"> SPOŁEM
 						</label>
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option9" name="options" th:field="*{shopName}" type="radio"
 								   value="MEAT"> NASZE MIĘSO
 						</label>
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
+
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option10" name="options" th:field="*{shopName}" type="radio"
 								   value="INNY"> INNY
@@ -173,12 +204,11 @@
 					</div>
 				</div>
 				<fieldset>
-					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}" >Title errors</p>
-					<legend>Kto płacił</legend>
-					<input  id="1" name="KAMIL"  th:object="${paragon}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
+					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}" th:errorclass="'Bdc(red)'">Title errors</p>
+					<legend>Please select user</legend>
+					<input th:errorclass="'Bdc(red)'" id="1" name="KAMIL"  th:object="${paragon}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
 					Kamil</label>
-					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}" >Title errors</p>
-					<input id="2" name="KASIA"  th:object="${paragon}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
+					<input th:errorclass="'Bdc(red)'" id="2" name="KASIA"  th:object="${paragon}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
 					Kasia</label>
 				</fieldset>
 
@@ -186,7 +216,7 @@
 																			   xmlns="http://www.w3.org/2000/svg">
 					<path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
 					<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
-				</svg> Dodaj paragonik</button>
+				</svg>Add expenses</button>
 			</form>
 		</div>
 	</main>
@@ -195,7 +225,7 @@
 	</div>
 </div>
 <div class="navbar navbar-light bg-dark" id="footer">
-	<a href="https://github.com/KamilAdd-Byte/Note-App">Paragonik KamilAdd-Byte</a>
+	<a href="https://github.com/KamilAdd-Byte/Note-App">Space Finance -  KamilAdd-Byte</a>
 </div>
 </div>
 </body>

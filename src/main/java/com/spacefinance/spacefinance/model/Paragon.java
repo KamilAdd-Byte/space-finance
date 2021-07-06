@@ -37,6 +37,7 @@ public class Paragon implements Serializable {
     private double price;
 
     @Column(name = "shop_name")
+    @NotNull(message = "Set fields shop on this operation!")
     private ShopName shopName;
 
     @Column(name = "date")

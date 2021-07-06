@@ -3,7 +3,6 @@ package com.spacefinance.spacefinance.valid;
 import com.spacefinance.spacefinance.model.Paragon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.HashSet;

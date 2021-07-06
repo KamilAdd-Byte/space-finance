@@ -98,9 +98,12 @@
 	<main>
 		<div align="center" id="content">
 			<h6 align="center">Wprowadź nowy wydatek</h6>
+			<!--			/*@thymesVar id="paragon" type="com.spacefinance.spacefinance.model.Car"*/-->
+			<p th:if="validationMessage" th:object="car"></p>
 			<form action="#" method="POST" th:action="@{/save_car}" th:object="${car}">
 				<div align="center">
 					<legend>Co będzie robione</legend>
+					<p th:errors="*{type}" th:if="${#fields.hasErrors('type')}">Title errors</p>
 					<div class="form-check">
 						<div id="first-group">
 							<label class="btn btn-secondary">Tankowanie
@@ -135,6 +138,7 @@
 					<!--					tu zaczyna sie lista użytkowników wpisana na stałe-->
 				<fieldset>
 					<legend>Kto płacił</legend>
+					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}">Title errors</p>
 					<input  id="1" name="KAMIL"  th:object="${car}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
 					Kamil</label>
 					<input id="2" name="KASIA"  th:object="${car}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
