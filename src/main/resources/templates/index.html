@@ -54,11 +54,12 @@
     #welcome {
         size: 40px;
     }
-
-    #summary {
-        padding: 5px;
-        float: left;
-    }
+	#card-1 {
+		background-color: #85dcdc;
+	}
+	#card-2 {
+		background-color: #fcf1c7;
+	}
 
     legend {
         color: chocolate;
@@ -108,7 +109,7 @@
 	<div id="navi">
 		<div class="row">
 			<div class="col-sm-6">
-				<div class="card">
+				<div class="card" id="card-1">
 					<div class="card-body" id="card-body">
 						<h5 class="card-title"><b>Special space for shop expenses</b></h5>
 						<p class="card-text">You added the paragons on your application.</p>
@@ -117,14 +118,13 @@
 				</div>
 			</div>
 			<div class="col-sm-6">
-				<div class="card">
+				<div class="card"id="card-2" >
 					<div class="card-body">
 						<h5 class="card-title"><b>Special space on your cars expenses</b></h5>
 						<p class="card-text">Controlling expenses on your car. Refueling, care and accessories on
 							car</p>
-						<a class="btn btn-outline-primary" th:href="@{/car}">Space of car</a>
+						<a class="btn btn-outline-warning" th:href="@{/car}">Space of car</a>
 					</div>
-
 				</div>
 			</div>
 		</div>
