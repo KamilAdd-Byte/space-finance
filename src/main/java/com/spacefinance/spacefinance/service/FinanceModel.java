@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 public interface FinanceModel {
     int sizeListAllOperation();
     double allExpenditure();
+    double oneExpenses(String user);
 }

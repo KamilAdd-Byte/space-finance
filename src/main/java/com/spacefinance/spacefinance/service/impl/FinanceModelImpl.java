@@ -8,7 +8,9 @@ import com.spacefinance.spacefinance.service.FinanceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FinanceModelImpl implements FinanceModel {
@@ -19,8 +21,8 @@ public class FinanceModelImpl implements FinanceModel {
     private CarDao carRepository;
 
     /**
-     * @apiNote Fuel and Paragon(sizeListAllOperation) size it's size two list
-     * @return size two list and sum Fuel and Paragon getPrice()
+     * @apiNote CarModel and ParagonModel (sizeListAllOperation) 'sizeListAllOperation' it's size two list
+     * @return size two list and sum Car expenses and Paragon expenses.
      */
 
     @Override
@@ -45,6 +47,23 @@ public class FinanceModelImpl implements FinanceModel {
             total += car.getPrice();
         }
         return total;
+    }
+
+    @Override
+    public double oneExpenses(String user) {
+        double expensesOne = 0;
+        List<Paragon> paragons = paragonRepository.findAll();
+        for (Paragon paragon : paragons) {
+            String my = paragon.getUser();
+            if (my.equals(user)) {
+                for (Paragon userExpenses : paragons) {
+                    double expenses = userExpenses.getPrice();
+                    expenses += expensesOne;
+                    expensesOne++;
+                }
+            }
+        }
+        return expensesOne;
     }
 }
 
