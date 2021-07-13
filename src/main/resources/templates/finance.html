@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Paragony" name="description"/>
+  <link rel="shortcut icon" href="https://www.pngarts.com/files/3/Letter-N-Free-PNG-Image.png">
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+  <title>Space family finance</title>
+</head>
+<style>
+  body{
+    background-color: lavender;
+  }
+  #container {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #information {
+    background-color: lightgray;
+  }
+
+  input[type=radio]:checked + label:before {
+    color: #de0f0f;
+    line-height: 15px;
+  }
+
+  #content {
+    padding: 30px;
+    font-size: 22px;
+    border-style: dashed;
+    border-color: cornflowerblue;
+  }
+
+  #navi {
+    padding: 10px;
+  }
+
+  #information {
+    padding: 10px;
+
+  }
+
+  #welcome {
+    size: 40px;
+  }
+  #card-1 {
+    background-color: #85dcdc;
+  }
+  #card-2 {
+    background-color: #fcf1c7;
+  }
+
+  legend {
+    color: chocolate;
+    text-decoration: black;
+    font-size: 24px;
+  }
+
+  #footer {
+    clear: both;
+    padding: 20px;
+    font-size: 22px;
+    color: white;
+    alignment-baseline: center;
+    text-align: center;
+  }
+</style>
+<div id="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" >Space Couple Finance</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div>
+    <div id="information">
+      <div class="jumbotron" id="welcome">
+        <div class="card border-light mb-3" style="max-width: 18rem;" id="summary">
+          <div class="card-header">Summary yours all expenses</div>
+          <div class="card-body">
+            <h5 class="card-title">Total</h5>
+            <p class="card-text">It's yours number add expenses and summary all</p>
+            <div id="sizeOperation">
+              <form th:object="${all}">
+                <fieldset>
+                  <legend>
+                    <label>
+                      <h9>Sum all expenses <span th:object="${all}" th:text="${all}" class="badge badge-primary">Total!</span></h9>
+                    </label>
+                  </legend>
+                </fieldset>
+              </form>
+            </div>
+            <div id="allExpenditure">
+              <form th:object="${sumAll}">
+                <fieldset>
+                  <legend>
+                    <label>
+                      <h9>Total costs <span th:object="${sumAll}" th:text="${sumAll}" class="badge badge-dark">Total!</span></h9>
+                    </label>
+                  </legend>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span th:object="${name}" th:text="${name}">op</span>
+        </div>
+
+
+      </div>
+    </div>
+    <footer class="page-footer font-small white">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2021 Copyright:
+        <a href="https://github.com/KamilAdd-Byte/space-finance"> Space-Finance project by KamilAdd-Byte</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+</div>
+</body>
+</html>
