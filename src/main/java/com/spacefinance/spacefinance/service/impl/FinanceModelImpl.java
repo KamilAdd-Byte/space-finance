@@ -8,12 +8,13 @@ import com.spacefinance.spacefinance.service.FinanceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.time.Month;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class FinanceModelImpl implements FinanceModel {
+
     @Autowired
     private ParagonDao paragonRepository;
 
@@ -24,7 +25,6 @@ public class FinanceModelImpl implements FinanceModel {
      * @apiNote CarModel and ParagonModel (sizeListAllOperation) 'sizeListAllOperation' it's size two list
      * @return size two list and sum Car expenses and Paragon expenses.
      */
-
     @Override
     public int sizeListAllOperation() {
         int total = 0;
@@ -50,20 +50,29 @@ public class FinanceModelImpl implements FinanceModel {
     }
 
     @Override
-    public double oneExpenses(String user) {
+    public double monthKamilExpenses() {
+        String user = "KAMIL";
         double expensesOne = 0;
         List<Paragon> paragons = paragonRepository.findAll();
         for (Paragon paragon : paragons) {
-            String my = paragon.getUser();
-            if (my.equals(user)) {
-                for (Paragon userExpenses : paragons) {
-                    double expenses = userExpenses.getPrice();
-                    expenses += expensesOne;
-                    expensesOne++;
-                }
+            String user1 = paragon.getUser();
+            if (user1.equals(user)){
+                double v = paragon.getPrice();
+                expensesOne += v;
             }
         }
         return expensesOne;
+    }
+
+
+    @Override
+    public double getSumOnMonth(String user) {
+        List<Paragon> paragons = paragonRepository.findAll();
+        paragons.stream()
+                .filter(c -> c.getUser().equals(user))
+                .map(c -> c.getPrice() + " " + c.getDate())
+                .collect(Collectors.toList());
+        return 0.0;
     }
 }
 

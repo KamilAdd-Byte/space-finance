@@ -121,9 +121,15 @@
           </div>
         </div>
 
-        <div>
-          <span th:object="${name}" th:text="${name}">op</span>
-        </div>
+        <form th:object="${month}">
+          <fieldset>
+            <legend>
+              <label>
+                <h9>Price user <span th:object="${month}" th:text="${month}" class="badge badge-dark">Total!</span></h9>
+              </label>
+            </legend>
+          </fieldset>
+        </form>
 
 
       </div>

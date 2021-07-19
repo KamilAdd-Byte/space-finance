@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.Objects;
 
 @Setter
@@ -40,7 +41,7 @@ public class Paragon implements Serializable {
     private ShopName shopName;
 
     @Column(name = "date")
-    private LocalDate date = LocalDate.now();
+    private Month date = LocalDate.now().getMonth();
 
     @Column(name = "time")
     private LocalTime time = LocalTime.now();

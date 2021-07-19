@@ -49,18 +49,9 @@ public class ParagonController {
         return "redirect:/paragon";
     }
 
-//    @GetMapping("/sum")
-//    public String sumReport(Model model) {
-//        model.addAttribute("kam", paragonService.getSumUserParagon());
-//        model.addAttribute("sum", paragonService.sumAllParagon());
-//        model.addAttribute("kas", paragonService.getSumUserKasiaParagon());
-//        return "sum";
-//    }
-
     @GetMapping("/paragon/remove/{paragon}")
     public String removeParagon(@PathVariable("paragon") Paragon paragon, Model model) {
         paragonService.removeParagon(paragon);
-        model.addAttribute("message", "Usunięto pomyślnie!");
         return "redirect:/paragon";
     }
 
