@@ -50,16 +50,14 @@ public class ParagonController {
     }
 
     @GetMapping("/paragon/remove/{paragon}")
-    public String removeParagon(@PathVariable("paragon") Paragon paragon, Model model) {
+    public String removeParagon(@PathVariable("paragon") Paragon paragon) {
         paragonService.removeParagon(paragon);
         return "redirect:/paragon";
     }
 
-    @GetMapping("paragon/update/{id}")
-    public String updateParagonById(@PathVariable("id") String id, Paragon paragon, Model model) {
-        paragonService.updateParagon(id,paragon);
-        model.addAttribute("message", "Update pomyślnie!");
-        model.addAttribute("paragon",paragon);
+    @GetMapping("paragon/update/{paragon}")
+    public String updateParagonById(@PathVariable("paragon") Paragon paragon) {
+        paragonService.updateParagon(paragon.getId());
         return "paragon_update";
     }
 }
