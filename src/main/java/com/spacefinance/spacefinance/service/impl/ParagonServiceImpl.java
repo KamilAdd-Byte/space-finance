@@ -5,9 +5,7 @@ import com.spacefinance.spacefinance.repository.ParagonDao;
 import com.spacefinance.spacefinance.service.ParagonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ParagonServiceImpl implements ParagonService {
@@ -31,13 +29,13 @@ public class ParagonServiceImpl implements ParagonService {
     }
 
     @Override
-    public Paragon findById(String id) {
-        return this.paragonRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+    public void findById(Paragon paragon) {
+        this.paragonRepository.findById(paragon.getId()).orElseThrow(IllegalArgumentException::new);
     }
 
     @Override
-    public void updateParagon(String id) {
-        Paragon update = paragonRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+    public void updateParagon(Paragon paragon) {
+        Paragon update = paragonRepository.findById(paragon.getId()).orElseThrow(IllegalArgumentException::new);
         this.paragonRepository.save(update);
     }
 

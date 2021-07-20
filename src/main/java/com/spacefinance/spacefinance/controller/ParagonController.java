@@ -56,8 +56,9 @@ public class ParagonController {
     }
 
     @GetMapping("paragon/update/{paragon}")
-    public String updateParagonById(@PathVariable("paragon") Paragon paragon) {
-        paragonService.updateParagon(paragon.getId());
+    public String updateParagonById(@PathVariable("paragon") Paragon paragon,Model model) {
+        paragonService.findById(paragon);
+        model.addAttribute("paragon",paragon);
         return "paragon_update";
     }
 }
