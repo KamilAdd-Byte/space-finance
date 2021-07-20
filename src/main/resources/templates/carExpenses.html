@@ -102,9 +102,9 @@
 	<div id="navi">
 		<div class="container-fluid">
 			<a class="btn btn-outline-primary" th:href="@{/index}">Home</a>
-			<a class="btn btn-warning" th:href="@{/car_info}">Add expenses</a>
+			<a class="btn btn-warning" th:href="@{/carExpenses_info}">Add expenses</a>
 			<div id="title">
-				<span class="badge badge-pill badge-warning">Space of car</span>
+				<span class="badge badge-pill badge-warning">Space of car expenses</span>
 			</div>
 		</div>
 
@@ -128,17 +128,17 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr th:align="center" th:each="car: ${listAllCars}">
+			<tr th:align="center" th:each="carExpenses: ${allCarExpenses}">
 				<!--				<td th:text="${paragon.id}"></td>-->
-				<td th:text="${car.price}"></td>
-				<td th:text="${car.user}"></td>
-				<td th:text="${car.type.description}"></td>
-				<td th:text="${car.description}"></td>
-				<td th:text="${car.time}"></td>
-				<td th:text="${car.date}"></td>
+				<td th:text="${carExpenses.price}"></td>
+				<td th:text="${carExpenses.user}"></td>
+				<td th:text="${carExpenses.type.description}"></td>
+				<td th:text="${carExpenses.description}"></td>
+				<td th:text="${carExpenses.time}"></td>
+				<td th:text="${carExpenses.date}"></td>
 				<td>
 <!--					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>-->
-					<a class="btn btn-danger" th:href="@{car/remove/{car}(car=${car.id})}">Usuń</a>
+					<a class="btn btn-danger" th:href="@{carExpenses/remove/{carExpenses}(carExpenses=${carExpenses.id})}">Usuń</a>
 				</td>
 			</tr>
 			</tbody>

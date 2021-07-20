@@ -94,18 +94,18 @@
 	<div id="navi">
 		<div class="container-fluid">
 			<a class="btn btn-outline-primary" th:href="@{/index}">Home</a>
-			<a class="btn btn-outline-warning" th:href="@{/car}">History cars expenses</a>
+			<a class="btn btn-outline-warning" th:href="@{/carExpenses}">History carExpenses expenses</a>
 		</div>
 	</div>
 	<main>
 		<div align="center" id="content">
 			<h6 align="center">Add new expenses</h6>
-			<!--			/*@thymesVar id="car" type="com.spacefinance.spacefinance.model.Car"*/-->
+
 			<p th:if="validationMessage"></p>
-			<form action="#" method="POST" th:action="@{/save_car}" th:object="${car}">
+			<form action="#" method="POST" th:action="@{/carExpenses_save}" th:object="${carExpenses}">
 				<div align="center">
-					<legend>Select type operation on your car</legend>
-				<p th:errors="*{type}" th:if="${#fields.hasErrors('type')}">Title errors</p>
+					<legend>Select type operation on your carExpenses</legend>
+<!--				<p th:errors="*{type}" th:if="${#fields.hasErrors('type')}">Title errors</p>-->
 					<div class="form-check">
 						<div id="first-group">
 							<label class="btn btn-secondary">Tank
@@ -140,9 +140,9 @@
 				<fieldset>
 					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}">Title errors</p>
 					<legend>Select user</legend>
-					<input  id="1" name="KAMIL"  th:object="${car}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
+					<input  id="1" name="KAMIL"  th:object="${carExpenses}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
 					Kamil</label>
-					<input id="2" name="KASIA"  th:object="${car}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
+					<input id="2" name="KASIA"  th:object="${carExpenses}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
 					Kasia</label>
 				</fieldset>
 
