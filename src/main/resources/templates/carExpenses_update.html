@@ -98,26 +98,26 @@
   </div>
   <main>
     <div align="center" id="content">
-      <h6 align="center">Add new expenses</h6>
-      <!--			/*@thymesVar id="paragon" type="com.spacefinance.spacefinance.model.CarExpenses"*/-->
+      <h3 align="center">Add new car expenses</h3>
+      <!--			/*@thymesVar id="carExpenses" type="com.spacefinance.spacefinance.model.CarExpenses"*/-->
       <p th:if="validationMessage"></p>
       <form action="#" method="POST" th:action="@{/carExpenses_save}" th:object="${carExpenses}">
         <input type="hidden" th:field = "*{id}">
         <div align="center">
-          <legend>Select type operation on your carExpenses</legend>
+          <legend>Select type operation on your car expenses</legend>
           <div class="form-check">
             <div id="first-group">
-              <p th:errors="*{getTypeCarExpenses}" th:if="${#fields.hasErrors('type')}">Title errors</p>
+              <p th:errors="*{typeCarExpenses}">Title errors</p>
               <label class="btn btn-secondary">Tank
-                <input autocomplete="off" id="option1" name="options" th:field="*{getTypeCarExpenses}" type="radio"
+                <input autocomplete="off" id="option1" name="options" th:field="*{typeCarExpenses}" type="radio"
                        value="GAS_STATION">
               </label>
               <label class="btn btn-secondary">Mechanic
-                <input autocomplete="off" id="option2" name="options" th:field="*{getTypeCarExpenses}" type="radio"
+                <input autocomplete="off" id="option2" name="options" th:field="*{typeCarExpenses}" type="radio"
                        value="MECHANIC">
               </label>
               <label class="btn btn-secondary">
-                <input autocomplete="off" id="option3" name="options" th:field="*{getTypeCarExpenses}" type="radio"
+                <input autocomplete="off" id="option3" name="options" th:field="*{typeCarExpenses}" type="radio"
                        value="CARE"> Care
               </label>
             </div>

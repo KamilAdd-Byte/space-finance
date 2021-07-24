@@ -25,7 +25,7 @@ public class CarExpensesController {
     }
 
     @GetMapping("/carExpenses")
-    public String allCarExpenses(Model model) {
+    public String allCarExpensesList(Model model) {
         model.addAttribute("allCarExpenses", carExpensesService.allCarsExpenses());
         model.addAttribute("sum", carExpensesService.sizeCarsExpenses());
         model.addAttribute("allPrice", carExpensesService.getSumAllCarsExpenses());
@@ -41,7 +41,7 @@ public class CarExpensesController {
     }
 
     @PostMapping("/carExpenses_save")
-    public String saveCarsExpenses(@Valid @ModelAttribute("car") CarExpenses carExpenses, BindingResult bindingResult) {
+    public String saveCarExpenses(@Valid @ModelAttribute("carExpenses") CarExpenses carExpenses, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             List<ObjectError> errorList = bindingResult.getAllErrors();
             errorList.forEach(objectError -> System.out.println(objectError.getDefaultMessage()));

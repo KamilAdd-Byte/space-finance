@@ -36,7 +36,7 @@ public class CarExpenses {
     private double price;
 
     @Column(name = "type")
-    @NotNull(message = "Set fields typeCarExpenses on this operation!")
+    @NotNull(message = "Set fields type car expenses on this operation!")
     private TypeCarExpenses typeCarExpenses;
 
     @Column(name = "description")

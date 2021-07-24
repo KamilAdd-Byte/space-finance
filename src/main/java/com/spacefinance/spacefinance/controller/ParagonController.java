@@ -24,14 +24,14 @@ public class ParagonController {
     }
 
     @GetMapping("/paragon")
-    public String allUser(Model model) {
+    public String allParagonList(Model model) {
         model.addAttribute("listAllParagon", paragonService.allParagons());
         model.addAttribute("sum",paragonService.sizeParagon());
         model.addAttribute("allPrice",paragonService.getSumAllParagon());
         return "paragon";
     }
      @GetMapping("/paragon_info")
-    public String paragons(Model model) {
+    public String addNewParagonToModel(Model model) {
         Paragon paragon = new Paragon();
         model.addAttribute("paragon", paragon);
         model.addAttribute("allListParagon", paragonService.allParagons());
