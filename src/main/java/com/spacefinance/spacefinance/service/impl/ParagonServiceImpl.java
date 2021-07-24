@@ -29,14 +29,14 @@ public class ParagonServiceImpl implements ParagonService {
     }
 
     @Override
-    public void findById(Paragon paragon) {
-        this.paragonRepository.findById(paragon.getId()).orElseThrow(IllegalArgumentException::new);
+    public Paragon findById(String id) {
+        return this.paragonRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
     @Override
-    public void updateParagon(Paragon paragon) {
-        Paragon update = paragonRepository.findById(paragon.getId()).orElseThrow(IllegalArgumentException::new);
-        this.paragonRepository.save(update);
+    public Paragon updateParagon(String id) {
+        Paragon update = paragonRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return this.paragonRepository.save(update);
     }
 
     @Override

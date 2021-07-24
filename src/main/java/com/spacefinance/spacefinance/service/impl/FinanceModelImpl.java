@@ -1,14 +1,13 @@
 package com.spacefinance.spacefinance.service.impl;
 
-import com.spacefinance.spacefinance.model.Car;
+import com.spacefinance.spacefinance.model.CarExpenses;
 import com.spacefinance.spacefinance.model.Paragon;
-import com.spacefinance.spacefinance.repository.CarDao;
+import com.spacefinance.spacefinance.repository.CarExpensesDao;
 import com.spacefinance.spacefinance.repository.ParagonDao;
 import com.spacefinance.spacefinance.service.FinanceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Month;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,17 +18,17 @@ public class FinanceModelImpl implements FinanceModel {
     private ParagonDao paragonRepository;
 
     @Autowired
-    private CarDao carRepository;
+    private CarExpensesDao carRepository;
 
     /**
      * @apiNote CarModel and ParagonModel (sizeListAllOperation) 'sizeListAllOperation' it's size two list
-     * @return size two list and sum Car expenses and Paragon expenses.
+     * @return size two list and sum CarExpenses expenses and Paragon expenses.
      */
     @Override
     public int sizeListAllOperation() {
         int total = 0;
         List<Paragon> paragons = paragonRepository.findAll();
-        List<Car> fuel = carRepository.findAll();
+        List<CarExpenses> fuel = carRepository.findAll();
         int sizeParagon = paragons.size();
         int sizeFuel = fuel.size();
         return total + sizeFuel + sizeParagon;
@@ -42,9 +41,9 @@ public class FinanceModelImpl implements FinanceModel {
         for (Paragon paragon : paragons) {
             total += paragon.getPrice();
         }
-        List<Car> fuel = carRepository.findAll();
-        for (Car car : fuel) {
-            total += car.getPrice();
+        List<CarExpenses> fuel = carRepository.findAll();
+        for (CarExpenses carExpenses : fuel) {
+            total += carExpenses.getPrice();
         }
         return total;
     }

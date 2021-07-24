@@ -7,7 +7,7 @@
 	<!--	<link rel="shortcut icon" href="https://www.pngarts.com/files/3/Letter-N-Free-PNG-Image.png">-->
 	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
-	<title>Paragonik</title>
+	<title>Car expenses</title>
 </head>
 <style>
     #container {
@@ -36,7 +36,6 @@
         alignment: center;
     }
     table {
-        align-content: baseline;
         padding: 20px;
     }
 
@@ -48,16 +47,6 @@
         color: chocolate;
         text-decoration: black;
         font-size: 24px;
-    }
-
-    #footer {
-        clear: both;
-        padding: 20px;
-        background-color: #cd10db;
-        font-size: 22px;
-        color: white;
-        alignment-baseline: center;
-        text-align: center;
     }
 </style>
 <body>
@@ -78,36 +67,25 @@
 				<li class="nav-item">
 					<a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Dropdown link
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li>
 			</ul>
 		</div>
 	</nav>
 	<div id="navi">
 		<div class="container-fluid">
-			<a class="btn btn-outline-primary" th:href="@{/index}">Home</a>
-			<a class="btn btn-outline-warning" th:href="@{/car}">History cars expenses</a>
+			<a class="btn btn-outline-warning" th:href="@{/carExpenses}">History car expenses</a>
 		</div>
 	</div>
 	<main>
 		<div align="center" id="content">
 			<h6 align="center">Add new expenses</h6>
-			<!--			/*@thymesVar id="car" type="com.spacefinance.spacefinance.model.Car"*/-->
+			<!--			/*@thymesVar id="paragon" type="com.spacefinance.spacefinance.model.CarExpenses"*/-->
 			<p th:if="validationMessage"></p>
-			<form action="#" method="POST" th:action="@{/save_car}" th:object="${car}">
+			<form action="#" method="POST" th:action="@{/carExpenses_save}" th:object="${carExpenses}">
 				<div align="center">
-					<legend>Select type operation on your car</legend>
-				<p th:errors="*{type}" th:if="${#fields.hasErrors('type')}">Title errors</p>
+					<legend>Select type operation on your carExpenses</legend>
 					<div class="form-check">
 						<div id="first-group">
+							<p th:errors="*{type}" th:if="${#fields.hasErrors('type')}">Title errors</p>
 							<label class="btn btn-secondary">Tank
 								<input autocomplete="off" id="option1" name="options" th:field="*{type}" type="radio"
 									   value="GAS_STATION">
@@ -140,9 +118,9 @@
 				<fieldset>
 					<p th:errors="*{user}" th:if="${#fields.hasErrors('user')}">Title errors</p>
 					<legend>Select user</legend>
-					<input  id="1" name="KAMIL"  th:object="${car}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
+					<input  id="1" name="KAMIL"  th:object="${carExpenses}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
 					Kamil</label>
-					<input id="2" name="KASIA"  th:object="${car}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
+					<input id="2" name="KASIA"  th:object="${carExpenses}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
 					Kasia</label>
 				</fieldset>
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Space family finance" name="description"/>
+  <!--	<link rel="shortcut icon" href="https://www.pngarts.com/files/3/Letter-N-Free-PNG-Image.png">-->
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+  <title>Paragonik</title>
+</head>
+<style>
+  #container {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input[type=radio]:checked + label:before {
+    color: #de0f0f;
+    line-height: 15px;
+  }
+
+  #content {
+    padding: 30px;
+    font-size: 22px;
+    border-style: dashed;
+    border-color: cornflowerblue;
+  }
+
+  #navi {
+    padding: 10px;
+  }
+
+  #price{
+    alignment: center;
+  }
+  table {
+    align-content: baseline;
+    padding: 20px;
+  }
+
+  .table:hover {
+    padding: 10px;
+  }
+
+  legend {
+    color: chocolate;
+    text-decoration: black;
+    font-size: 24px;
+  }
+
+  #footer {
+    clear: both;
+    padding: 20px;
+    background-color: #cd10db;
+    font-size: 22px;
+    color: white;
+    alignment-baseline: center;
+    text-align: center;
+  }
+</style>
+<body>
+<div id="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Space Family Finance</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="navi">
+    <div class="container-fluid">
+      <a class="btn btn-outline-warning" th:href="@{/carExpenses}">History car expenses</a>
+    </div>
+  </div>
+  <main>
+    <div align="center" id="content">
+      <h6 align="center">Add new expenses</h6>
+      <!--			/*@thymesVar id="paragon" type="com.spacefinance.spacefinance.model.CarExpenses"*/-->
+      <p th:if="validationMessage"></p>
+      <form action="#" method="POST" th:action="@{/carExpenses_save}" th:object="${carExpenses}">
+        <input type="hidden" th:field = "*{id}">
+        <div align="center">
+          <legend>Select type operation on your carExpenses</legend>
+          <div class="form-check">
+            <div id="first-group">
+              <p th:errors="*{type}" th:if="${#fields.hasErrors('type')}">Title errors</p>
+              <label class="btn btn-secondary">Tank
+                <input autocomplete="off" id="option1" name="options" th:field="*{type}" type="radio"
+                       value="GAS_STATION">
+              </label>
+              <label class="btn btn-secondary">Mechanic
+                <input autocomplete="off" id="option2" name="options" th:field="*{type}" type="radio"
+                       value="MECHANIC">
+              </label>
+              <label class="btn btn-secondary">
+                <input autocomplete="off" id="option3" name="options" th:field="*{type}" type="radio"
+                       value="CARE"> Care
+              </label>
+            </div>
+            <fieldset>
+              <legend>Price</legend>
+              <div id="price" class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">PLN</span>
+                  <span class="input-group-text">0.00</span>
+                </div>
+                <input name="description" size="20%" th:errorclass="'Bdc(red)'" th:field="*{price}" type="text">
+              </div>
+            </fieldset>
+          </div>
+          <fieldset>
+            <legend>Info - optional description</legend>
+            <input th:field="*{description}" type="text" placeholder="opcjonalnie">
+          </fieldset>
+          <!--					tu zaczyna sie lista użytkowników wpisana na stałe-->
+          <fieldset>
+            <p th:errors="*{user}" th:if="${#fields.hasErrors('user')}">Title errors</p>
+            <legend>Select user</legend>
+            <input  id="1" name="KAMIL"  th:object="${carExpenses}" th:field="*{user}" type="radio" value="KAMIL"> <label for="1">
+            Kamil</label>
+            <input id="2" name="KASIA"  th:object="${carExpenses}" th:field="*{user}" type="radio" value="KASIA"> <label for="2">
+            Kasia</label>
+          </fieldset>
+
+          <button class="btn btn-lg btn-outline-dark" type="submit"><svg class="bi bi-basket2" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+                                                                         xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
+            <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
+          </svg>Add expenses</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer class="page-footer font-small white">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+      <a href="https://github.com/KamilAdd-Byte/space-finance"> Space-Finance project by KamilAdd-Byte</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
+</body>
+</html>

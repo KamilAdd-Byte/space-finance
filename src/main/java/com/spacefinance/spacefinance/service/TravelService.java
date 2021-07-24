@@ -7,7 +7,9 @@ import java.util.List;
 
 @Service
 public interface TravelService {
-    List<Travel>allTravel();
+    List<Travel> allTravel();
+
     void addTravel(Travel travel);
+
     void removeTravel(Travel travel);
 }

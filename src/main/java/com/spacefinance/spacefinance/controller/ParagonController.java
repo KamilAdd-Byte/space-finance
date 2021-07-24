@@ -55,10 +55,10 @@ public class ParagonController {
         return "redirect:/paragon";
     }
 
-    @GetMapping("paragon/update/{paragon}")
-    public String updateParagonById(@PathVariable("paragon") Paragon paragon,Model model) {
-        paragonService.findById(paragon);
-        model.addAttribute("paragon",paragon);
+    @GetMapping("paragon/update/{id}")
+    public String updateParagonById(@PathVariable("id") String id,Model model) {
+        Paragon update = paragonService.updateParagon(id);
+        model.addAttribute("paragon",update);
         return "paragon_update";
     }
 }

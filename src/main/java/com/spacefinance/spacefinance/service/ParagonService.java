@@ -12,9 +12,9 @@ public interface ParagonService {
 
     void removeParagon(Paragon paragon);
 
-    void findById(Paragon paragon);
+    Paragon findById(String id);
 
-    void updateParagon(Paragon paragon);
+    Paragon updateParagon(String id);
 
     int sizeParagon();
 

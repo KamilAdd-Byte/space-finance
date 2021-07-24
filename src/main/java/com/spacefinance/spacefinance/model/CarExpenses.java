@@ -19,9 +19,9 @@ import java.util.Objects;
 @Setter
 @Getter
 @ToString
-@Document(collection = "Car")
+@Document(collection = "CarExpenses")
 @NoArgsConstructor
-public class Car {
+public class CarExpenses {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +35,7 @@ public class Car {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "type")
+    @Column(name = "types")
     @NotNull(message = "Set fields type on this operation!")
     private Type type;
 
@@ -51,9 +51,9 @@ public class Car {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Car)) return false;
-        Car car = (Car) o;
-        return Double.compare(car.price, price) == 0 && id.equals(car.id) && user.equals(car.user) && type == car.type && Objects.equals(description, car.description) && Objects.equals(date, car.date) && Objects.equals(time, car.time);
+        if (!(o instanceof CarExpenses)) return false;
+        CarExpenses carExpenses = (CarExpenses) o;
+        return Double.compare(carExpenses.price, price) == 0 && id.equals(carExpenses.id) && user.equals(carExpenses.user) && type == carExpenses.type && Objects.equals(description, carExpenses.description) && Objects.equals(date, carExpenses.date) && Objects.equals(time, carExpenses.time);
     }
 
     @Override
