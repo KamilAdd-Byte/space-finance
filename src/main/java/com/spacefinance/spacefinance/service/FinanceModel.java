@@ -10,5 +10,5 @@ public interface FinanceModel {
 
     double monthKamilExpenses();
 
-    double getSumOnMonth(String user);
+    double getSumOnMonth();
 }

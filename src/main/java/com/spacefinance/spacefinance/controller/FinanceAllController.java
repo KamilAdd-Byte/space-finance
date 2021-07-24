@@ -20,12 +20,22 @@ public class FinanceAllController {
     public String myExpensesAllSummary(Model model){
         model.addAttribute("all",financeModel.sizeListAllOperation());
         model.addAttribute("sumAll",financeModel.allExpenditure());
+        model.addAttribute("kamilMonth",financeModel.monthKamilExpenses());
+        model.addAttribute("expensesKamil",financeModel.getSumOnMonth());
+
+
         return "finance";
     }
 
-    @GetMapping("/finance/kamil")
-    public String getOneExpensesUserKamil (Model model) {
-        model.addAttribute("month",financeModel.monthKamilExpenses());
-        return "finance";
-    }
+//    @GetMapping("/finance/name")
+//    public String getMonthExpensesUserKamil (Model model) {
+//        model.addAttribute("month",financeModel.monthKamilExpenses());
+//        return "finance";
+//    }
+//    @GetMapping("/finance/name")
+//    public String getOneExpensesUserKamil (Model model) {
+//        model.addAttribute("month",financeModel.monthKamilExpenses());
+//        return "finance";
+//    }
+
 }

@@ -88,7 +88,7 @@
       </ul>
     </div>
   </nav>
-  <div>
+  <div id="content">
     <div id="information">
       <div class="jumbotron" id="welcome">
         <div class="card border-light mb-3" style="max-width: 18rem;" id="summary">
@@ -121,18 +121,27 @@
           </div>
         </div>
 
-        <form th:object="${month}">
+        <form th:object="${kamilMonth}">
           <fieldset>
             <legend>
               <label>
-                <h9>Price user <span th:object="${month}" th:text="${month}" class="badge badge-dark">Total!</span></h9>
+                <h9>Kamil expenses on shopping <span th:object="${kamilMonth}" th:text="${kamilMonth}" class="badge badge-dark">Total!</span></h9>
               </label>
             </legend>
           </fieldset>
         </form>
-
-
+        <form th:object="${expensesKamil}">
+          <fieldset>
+            <legend>
+              <label>
+                <h9>Price user <span th:object="${expensesKamil}" th:text="${expensesKamil}" class="badge badge-dark">Total!</span></h9>
+              </label>
+            </legend>
+          </fieldset>
+        </form>
       </div>
+
+
     </div>
     <footer class="page-footer font-small white">
       <!-- Copyright -->

@@ -7,7 +7,6 @@ import com.spacefinance.spacefinance.repository.ParagonDao;
 import com.spacefinance.spacefinance.service.FinanceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,12 +49,11 @@ public class FinanceModelImpl implements FinanceModel {
 
     @Override
     public double monthKamilExpenses() {
-        String user = "KAMIL";
         double expensesOne = 0;
         List<Paragon> paragons = paragonRepository.findAll();
         for (Paragon paragon : paragons) {
-            String user1 = paragon.getUser();
-            if (user1.equals(user)){
+            String kamil = paragon.getUser();
+            if (kamil.equals("KAMIL")){
                 double v = paragon.getPrice();
                 expensesOne += v;
             }
@@ -65,10 +63,10 @@ public class FinanceModelImpl implements FinanceModel {
 
 
     @Override
-    public double getSumOnMonth(String user) {
+    public double getSumOnMonth() {
         List<Paragon> paragons = paragonRepository.findAll();
         paragons.stream()
-                .filter(c -> c.getUser().equals(user))
+                .filter(c -> c.getUser().equals("KAMIL"))
                 .map(c -> c.getPrice() + " " + c.getDate())
                 .collect(Collectors.toList());
         return 0.0;
