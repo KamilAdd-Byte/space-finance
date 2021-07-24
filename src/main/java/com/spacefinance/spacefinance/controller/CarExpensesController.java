@@ -33,7 +33,7 @@ public class CarExpensesController {
     }
 
     @GetMapping("/carExpenses_info")
-    public String carExpenses(Model model) {
+    public String addNewCarExpensesToModel(Model model) {
         CarExpenses carExpenses = new CarExpenses();
         model.addAttribute("carExpenses", carExpenses);
         model.addAttribute("allCarExpenses", carExpensesService.allCarsExpenses());
@@ -50,9 +50,17 @@ public class CarExpensesController {
         carExpensesService.addCarsExpenses(carExpenses);
         return "redirect:/carExpenses";
     }
-     @GetMapping("car/remove/{car}")
+     @GetMapping("carExpenses/remove/{car}")
     public String removeCarsExpensesById(@PathVariable("car") CarExpenses carExpenses, Model model) {
         carExpensesService.removeCarsExpenses(carExpenses);
         return "redirect:/carExpenses";
     }
+
+    @GetMapping("carExpenses/update/{id}")
+    public String updateCarExpensesById(@PathVariable("id") String id, Model model){
+        CarExpenses update = carExpensesService.findCarExpensesById(id);
+        model.addAttribute("carExpenses",update);
+        return "carExpenses_update";
+    }
+
 }

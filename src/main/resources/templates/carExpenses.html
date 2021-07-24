@@ -137,8 +137,8 @@
 				<td th:text="${carExpenses.time}"></td>
 				<td th:text="${carExpenses.date}"></td>
 				<td>
-<!--					<a class="btn btn-primary" th:href="@{/update/{id}(id=${paragon.id})}">Edytuj</a>-->
-					<a class="btn btn-danger" th:href="@{carExpenses/remove/{carExpenses}(carExpenses=${carExpenses.id})}">Usuń</a>
+					<a class="btn btn-primary" th:href="@{carExpenses/update/{id}(id=${carExpenses.id})}">Edit</a>
+					<a class="btn btn-danger" th:href="@{carExpenses/remove/{carExpenses}(carExpenses=${carExpenses.id})}">Remove</a>
 				</td>
 			</tr>
 			</tbody>
@@ -148,8 +148,8 @@
 				<fieldset>
 					<legend>
 						<label>
-							<h3>Total price <span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
-							<h5>Numbers expenses <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
+							<h3>Summary expenses only car <span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
+							<h5>All car operation<span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
 						</label>
 					</legend>
 				</fieldset>

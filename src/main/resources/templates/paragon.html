@@ -137,7 +137,7 @@
 				<td th:text="${paragon.time}"></td>
 				<td th:text="${paragon.date}"></td>
 				<td>
-					<a class="btn btn-primary" th:href="@{paragon/update/{paragon}(paragon=${paragon.id})}">Edit</a>
+					<a class="btn btn-primary" th:href="@{paragon/update/{id}(id=${paragon.id})}">Edit</a>
 					<a class="btn btn-danger" th:href="@{paragon/remove/{paragon}(paragon=${paragon.id})}">Remove</a>
 				</td>
 			</tr>
@@ -148,8 +148,8 @@
 				<fieldset>
 					<legend>
 						<label>
-							<h3>Summary expenses coast<span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
-							<h5>All operation <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
+							<h3>Summary expenses only shopping<span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
+							<h5>All shopping operation <span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
 						</label>
 					</legend>
 				</fieldset>

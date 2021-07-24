@@ -33,9 +33,20 @@ public class CarExpensesServiceImpl implements CarExpensesService {
     }
 
     @Override
+    public CarExpenses findCarExpensesById(String id) {
+        return carRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public CarExpenses updateCarExpensesById(String id) {
+        CarExpenses update = carRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return carRepository.save(update);
+    }
+
+    @Override
     public int sizeCarsExpenses() {
-        List<CarExpenses> carExpans = carRepository.findAll();
-        return carExpans.size();
+        List<CarExpenses> carExpenses = carRepository.findAll();
+        return carExpenses.size();
     }
 
     @Override

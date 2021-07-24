@@ -3,8 +3,8 @@ package com.spacefinance.spacefinance.enums;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString
 @Getter
+@ToString
 public enum ShopName {
     BIEDRONKA("Biedronka"),
     LIDL("Lidl"),
@@ -19,6 +19,9 @@ public enum ShopName {
 
     private final String description;
 
+    /**
+     * @param description It's polish shop name.
+     */
     ShopName(final String description) {
         this.description = description;
     }

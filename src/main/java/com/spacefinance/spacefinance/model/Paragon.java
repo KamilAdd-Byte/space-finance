@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
@@ -22,7 +21,7 @@ import java.util.Objects;
 @ToString
 @Document(collection = "Space")
 @NoArgsConstructor
-public class Paragon implements Serializable {
+public class Paragon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
