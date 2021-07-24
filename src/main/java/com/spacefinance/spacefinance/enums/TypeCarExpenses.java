@@ -5,14 +5,14 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public enum Type {
+public enum TypeCarExpenses {
     GAS_STATION("Gas-Station"),
     MECHANIC("Mechanic"),
     CARE("Care");
 
-    private String description;
+    private final String description;
 
-    Type(String description) {
+    TypeCarExpenses(final String description) {
         this.description = description;
     }
 }

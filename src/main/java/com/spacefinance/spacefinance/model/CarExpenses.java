@@ -1,6 +1,6 @@
 package com.spacefinance.spacefinance.model;
 
-import com.spacefinance.spacefinance.enums.Type;
+import com.spacefinance.spacefinance.enums.TypeCarExpenses;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,9 +35,9 @@ public class CarExpenses {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "types")
-    @NotNull(message = "Set fields type on this operation!")
-    private Type type;
+    @Column(name = "type")
+    @NotNull(message = "Set fields typeCarExpenses on this operation!")
+    private TypeCarExpenses typeCarExpenses;
 
     @Column(name = "description")
     private String description;
@@ -53,11 +53,11 @@ public class CarExpenses {
         if (this == o) return true;
         if (!(o instanceof CarExpenses)) return false;
         CarExpenses carExpenses = (CarExpenses) o;
-        return Double.compare(carExpenses.price, price) == 0 && id.equals(carExpenses.id) && user.equals(carExpenses.user) && type == carExpenses.type && Objects.equals(description, carExpenses.description) && Objects.equals(date, carExpenses.date) && Objects.equals(time, carExpenses.time);
+        return Double.compare(carExpenses.price, price) == 0 && id.equals(carExpenses.id) && user.equals(carExpenses.user) && typeCarExpenses == carExpenses.typeCarExpenses && Objects.equals(description, carExpenses.description) && Objects.equals(date, carExpenses.date) && Objects.equals(time, carExpenses.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, price, type, description, date, time);
+        return Objects.hash(id, user, price, typeCarExpenses, description, date, time);
     }
 }

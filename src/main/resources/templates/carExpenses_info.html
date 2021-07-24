@@ -85,17 +85,17 @@
 					<legend>Select type operation on your carExpenses</legend>
 					<div class="form-check">
 						<div id="first-group">
-							<p th:errors="*{type}" th:if="${#fields.hasErrors('type')}">Title errors</p>
+							<p th:errors="*{typeCarExpenses}" th:if="${#fields.hasErrors('typeCarExpenses')}">Title errors</p>
 							<label class="btn btn-secondary">Tank
-								<input autocomplete="off" id="option1" name="options" th:field="*{type}" type="radio"
+								<input autocomplete="off" id="option1" name="options" th:field="*{typeCarExpenses}" type="radio"
 									   value="GAS_STATION">
 							</label>
 							<label class="btn btn-secondary">Mechanic
-								<input autocomplete="off" id="option2" name="options" th:field="*{type}" type="radio"
+								<input autocomplete="off" id="option2" name="options" th:field="*{typeCarExpenses}" type="radio"
 									   value="MECHANIC">
 							</label>
 							<label class="btn btn-secondary">
-								<input autocomplete="off" id="option3" name="options" th:field="*{type}" type="radio"
+								<input autocomplete="off" id="option3" name="options" th:field="*{typeCarExpenses}" type="radio"
 									   value="CARE"> Care
 							</label>
 						</div>
