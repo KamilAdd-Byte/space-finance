@@ -7,6 +7,8 @@ import com.spacefinance.spacefinance.repository.ParagonDao;
 import com.spacefinance.spacefinance.service.FinanceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.Month;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,28 +50,46 @@ public class FinanceModelImpl implements FinanceModel {
     }
 
     @Override
-    public double monthKamilExpenses() {
-        double expensesOne = 0;
+    public double allExpensesUserKamil() {
+        double expensesKamil = 0;
         List<Paragon> paragons = paragonRepository.findAll();
         for (Paragon paragon : paragons) {
             String kamil = paragon.getUser();
             if (kamil.equals("KAMIL")){
                 double v = paragon.getPrice();
-                expensesOne += v;
+                expensesKamil += v;
             }
         }
-        return expensesOne;
+        return expensesKamil;
+    }
+
+    @Override
+    public double allExpensesUserKasia() {
+        double expensesKasia = 0;
+        List<Paragon> paragons = paragonRepository.findAll();
+        for (Paragon paragon : paragons) {
+            String kasia = paragon.getUser();
+            if (kasia.equals("KASIA")){
+                double v = paragon.getPrice();
+                expensesKasia += v;
+            }
+        }
+        return expensesKasia;
     }
 
 
     @Override
-    public double getSumOnMonth() {
+    public double getSumOnMonthUserKamil() {
+        double expensesKamil = 0;
         List<Paragon> paragons = paragonRepository.findAll();
-        paragons.stream()
-                .filter(c -> c.getUser().equals("KAMIL"))
-                .map(c -> c.getPrice() + " " + c.getDate())
-                .collect(Collectors.toList());
-        return 0.0;
+
+        for (Paragon paragon : paragons) {
+            if (paragon.getDate().equals(Month.JULY) && paragon.getUser().equals("KAMIL")){
+                double price = paragon.getPrice();
+                expensesKamil+=price;
+            }
+        }
+        return expensesKamil;
     }
 }
 

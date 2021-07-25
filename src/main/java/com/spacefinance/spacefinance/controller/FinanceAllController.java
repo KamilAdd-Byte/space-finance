@@ -12,7 +12,7 @@ public class FinanceAllController {
     private final FinanceModel financeModel;
 
     @Autowired
-    public FinanceAllController(FinanceModel financeModel) {
+    public FinanceAllController(final FinanceModel financeModel) {
         this.financeModel = financeModel;
     }
 
@@ -20,22 +20,9 @@ public class FinanceAllController {
     public String myExpensesAllSummary(Model model){
         model.addAttribute("all",financeModel.sizeListAllOperation());
         model.addAttribute("sumAll",financeModel.allExpenditure());
-        model.addAttribute("kamilMonth",financeModel.monthKamilExpenses());
-        model.addAttribute("expensesKamil",financeModel.getSumOnMonth());
-
-
+        model.addAttribute("expensesKamil",financeModel.allExpensesUserKamil());
+        model.addAttribute("monthKamil",financeModel.getSumOnMonthUserKamil());
+        model.addAttribute("expensesKasia",financeModel.allExpensesUserKasia());
         return "finance";
     }
-
-//    @GetMapping("/finance/name")
-//    public String getMonthExpensesUserKamil (Model model) {
-//        model.addAttribute("month",financeModel.monthKamilExpenses());
-//        return "finance";
-//    }
-//    @GetMapping("/finance/name")
-//    public String getOneExpensesUserKamil (Model model) {
-//        model.addAttribute("month",financeModel.monthKamilExpenses());
-//        return "finance";
-//    }
-
 }

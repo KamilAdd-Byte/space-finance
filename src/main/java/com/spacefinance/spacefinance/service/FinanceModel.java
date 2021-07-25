@@ -4,11 +4,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface FinanceModel {
+
     int sizeListAllOperation();
 
     double allExpenditure();
 
-    double monthKamilExpenses();
+    double allExpensesUserKamil();
 
-    double getSumOnMonth();
+    double allExpensesUserKasia();
+
+    double getSumOnMonthUserKamil();
 }
