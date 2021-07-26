@@ -10,16 +10,15 @@
   <title>Space family finance</title>
 </head>
 <style>
-  body{
-    background-color: #a6a6f3;
-  }
+
   #container {
     width: auto;
     margin-left: auto;
     margin-right: auto;
   }
+
   #information {
-    background-color: lightgray;
+    background-color: #f15858;
   }
 
   input[type=radio]:checked + label:before {
@@ -27,38 +26,15 @@
     line-height: 15px;
   }
 
-  #content {
-    padding: 30px;
-    font-size: 22px;
-    border-color: cornflowerblue;
-  }
-
-  #summary {
-    padding: 10px;
-
-  }
-
   #summaryUser {
-    border-color: #d2d1a3;
-    background-color: #adac6e;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    padding: 5px;
+  }
+
+  #kamil {
     padding: 10px;
-
-  }
-
-  #information {
-    padding: 10px;
-
-  }
-
-  #welcome {
-
-  }
-
-  #card-1 {
-    background-color: #22f1f1;
-  }
-  #card-2 {
-    background-color: #fcf1c7;
+    float: left;
   }
 
   legend {
@@ -88,70 +64,37 @@
       </ul>
     </div>
   </nav>
-  <div id="content">
+  <div>
     <div id="information">
-      <div>
-        <div class="jumbotron" id="welcome">
-          <div class="card border-light mb-3" style="max-width: 18rem;" id="summary">
-            <div class="card-header">Summary yours all expenses</div>
-            <div class="card-body">
-              <h5 class="card-title">Total</h5>
-              <p class="card-text">It's yours number add expenses and summary all</p>
-              <div id="sizeOperation">
-                <form th:object="${all}">
-                  <fieldset>
-                    <legend>
-                      <label>
-                        <h9>Sum all expenses <span th:object="${all}" th:text="${all}" class="badge badge-primary">Total!</span></h9>
-                      </label>
-                    </legend>
-                  </fieldset>
-                </form>
-              </div>
-              <div id="allExpenditure">
-                <form th:object="${sumAll}">
-                  <fieldset>
-                    <legend>
-                      <label>
-                        <h9>Total costs <span class="badge badge-dark" th:object="${sumAll}" th:text="${sumAll}">Total!</span></h9>
-                      </label>
-                    </legend>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="card border-light mb-3" id="summaryUser" style="max-width: 18rem;">
-            <div class="card-header">Kamil expenses information</div>
-            <div class="card-body">
-              <p class="card-text">Information about Kamil</p>
-              <div id="userOperation">
-                <form th:object="${expensesKamil}">
-                  <fieldset>
-                    <legend>
-                      <label>
-                        <h9>Kamil expenses on shopping <span class="badge badge-dark" th:object="${expensesKamil}"
-                                                             th:text="${expensesKamil}">Total!</span></h9>
-                      </label>
-                    </legend>
-                  </fieldset>
-                </form>
-                <form th:object="${monthKamil}">
-                  <fieldset>
-                    <legend>
-                      <label>
-                        <h9>Kamil on JULY month expenses <span class="badge badge-light" th:object="${monthKamil}" th:text="${monthKamil+' zł'}">Total!</span></h9>
-                      </label>
-                    </legend>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
+      <div class="jumbotron" id="welcome">
+        <h3 class="display-5">Report expenses of couple</h3>
+        <div id="summaryUser" class="card-header">
+          Summary couple expenses
+          <ul class="list-group list-group-flush">
+            <h5>Total receipt <span th:object="${all}" th:text="${all}" class="badge badge-primary">Total!</span></h5>
+            <h5>Total couple costs <span class="badge badge-dark" th:object="${sumAll}" th:text="${sumAll+' zł'}">Total!</span></h5>
+          </ul>
+        </div>
+        <div id="kamil" class="card-header">
+
+          <ul class="list-group list-group-flush">
+            <h6>Kamil paid: <span class="badge badge-danger" th:object="${expensesKamil}"
+                                                        th:text="${expensesKamil+' zł'}">Total!</span></h6>
+          </ul>
+        </div>
+        <div id="kasia" class="card-header">
+
+          <ul class="list-group list-group-flush">
+            <h6>Kasia paid: <span class="badge badge-danger" th:object="${expensesKasia}"
+                                                        th:text="${expensesKasia+' zł'}">Total!</span></h6>
+          </ul>
         </div>
       </div>
+      </div>
     </div>
-    <footer class="page-footer font-small white">
+  </div>
+
+    <footer id="footer" class="page-footer font-small white">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">© 2021 Copyright:
         <a href="https://github.com/KamilAdd-Byte/space-finance"> Space-Finance project by KamilAdd-Byte</a>
@@ -159,7 +102,6 @@
       <!-- Copyright -->
     </footer>
     <!-- Footer -->
-  </div>
 </div>
 </body>
 </html>

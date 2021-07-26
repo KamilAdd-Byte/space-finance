@@ -42,7 +42,6 @@
         padding: 10px;
 
     }
-
     #welcome {
         size: 40px;
     }
@@ -119,12 +118,17 @@
 	<div>
 		<div id="information">
 			<div class="jumbotron" id="welcome">
-				<h1 class="display-4">Welcome to Space finance!</h1>
-				<p class="lead">Use functions this application and logging --> login: user, password: user</p>
+				<h1 class="display-5">Welcome to Space finance! </h1>
+				<h2 class="display-6">This application is programmed for two people (couple). You have the option to save expenses in the store or while refueling your car. With this application you will see how your expenses are distributed</h2>
+				<div class="alert alert-warning" role="alert">
+					<p class="lead">Use functions this application and logging --> login: user, password: user</p>
+				</div>
+
 				<hr class="my-4">
-				<p>Create and control expenses in couple.</p>
+				<p>Space Finance is an application designed for couples who would like to have an insight into their
+					expenses home-type shopping, delivery lunches or trip planning.</p>
 				<p class="lead">
-					<a class="btn btn-primary btn-lg" role="button" th:href="@{/infoApi}">Learn more</a>
+					<a class="btn btn-primary btn-lg" role="button" th:href="@{/finance}">Report</a>
 				</p>
 			</div>
 		</div>

@@ -60,6 +60,14 @@ public class FinanceModelImpl implements FinanceModel {
                 expensesKamil += v;
             }
         }
+        List<CarExpenses> carExpenses = carRepository.findAll();
+        for (CarExpenses carExpens : carExpenses) {
+            String kamil = carExpens.getUser();
+            if (kamil.equals("KAMIL")){
+                double price = carExpens.getPrice();
+                expensesKamil+=price;
+            }
+        }
         return expensesKamil;
     }
 
@@ -74,6 +82,14 @@ public class FinanceModelImpl implements FinanceModel {
                 expensesKasia += v;
             }
         }
+        List<CarExpenses> carExpenses = carRepository.findAll();
+        for (CarExpenses carExpens : carExpenses) {
+            String kasia = carExpens.getUser();
+            if (kasia.equals("KASIA")){
+                double price = carExpens.getPrice();
+                expensesKasia+=price;
+            }
+        }
         return expensesKasia;
     }
 
@@ -82,7 +98,6 @@ public class FinanceModelImpl implements FinanceModel {
     public double getSumOnMonthUserKamil() {
         double expensesKamil = 0;
         List<Paragon> paragons = paragonRepository.findAll();
-
         for (Paragon paragon : paragons) {
             if (paragon.getDate().equals(Month.JULY) && paragon.getUser().equals("KAMIL")){
                 double price = paragon.getPrice();

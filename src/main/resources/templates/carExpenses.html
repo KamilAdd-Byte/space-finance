@@ -137,8 +137,8 @@
 				<fieldset>
 					<legend>
 						<label>
-							<h3>Summary expenses only car <span th:object="${allPrice}" th:text="${allPrice}" class="badge badge-dark">Całkowita!</span></h3>
-							<h5>All car operation<span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
+							<h3>Summary expenses only car <span th:object="${allPrice}" th:text="${allPrice+' zł'}" class="badge badge-dark">Całkowita!</span></h3>
+							<h5>Total receipt<span th:text="${sum}" class="badge badge-warning">Całkowita!</span></h5>
 						</label>
 					</legend>
 				</fieldset>
