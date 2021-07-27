@@ -37,7 +37,9 @@
     #navi {
         padding: 10px;
     }
-
+    #navi2 {
+        padding: 10px;
+    }
     #information {
         padding: 10px;
 
@@ -79,19 +81,17 @@
 				<li class="nav-item">
 					<a class="nav-link" th:href="@{/finance}">My Finance</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Dropdown link
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li>
 			</ul>
 		</div>
 	</nav>
+	<div id="navi2">
+		<div class="container-fluid">
+			<a class="btn btn-outline-primary" th:href="@{/index}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+				<path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+			</svg>Home</a>
+			<a class="btn btn-warning" th:href="@{/finance}">Report</a>
+		</div>
+	</div>
 	<div id="navi">
 		<div class="row">
 			<div class="col-sm-6">
@@ -99,7 +99,11 @@
 					<div class="card-body" id="card-body">
 						<h5 class="card-title"><b>Special space for shop expenses</b></h5>
 						<p class="card-text">You added the receipt on your application.</p>
-						<a class="btn btn-outline-primary" th:href="@{/paragon}">Space of shop</a>
+						<a class="btn btn-lg btn-outline-dark" th:href="@{/paragon}"><svg class="bi bi-basket2" fill="currentColor" height="18" viewBox="0 0 16 16" width="18"
+																					   xmlns="http://www.w3.org/2000/svg">
+							<path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
+							<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
+						</svg>Space of shop</a>
 					</div>
 				</div>
 			</div>
@@ -109,7 +113,11 @@
 						<h5 class="card-title"><b>Special space on your car expenses</b></h5>
 						<p class="card-text">Controlling expenses on your car. Refueling, care and accessories on
 							car</p>
-						<a class="btn btn-outline-warning" th:href="@{/carExpenses}">Space of car expanses</a>
+						<a class="btn btn-lg btn-outline-dark" th:href="@{/carExpenses}"><svg class="bi bi-basket2" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+																					   xmlns="http://www.w3.org/2000/svg">
+							<path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
+							<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
+						</svg>Space of car expanses</a>
 					</div>
 				</div>
 			</div>
@@ -118,8 +126,8 @@
 	<div>
 		<div id="information">
 			<div class="jumbotron" id="welcome">
-				<h1 class="display-5">Welcome to Space finance! </h1>
-				<h2 class="display-6">This application is programmed for two people (couple). You have the option to save expenses in the store or while refueling your car. With this application you will see how your expenses are distributed</h2>
+				<h2 class="display-6">Welcome to Space finance! </h2>
+				<h3 class="display-6">This application is programmed for two people (couple). You have the option to save expenses in the store or while refueling your car. With this application you will see how your expenses are distributed</h3>
 				<div class="alert alert-warning" role="alert">
 					<p class="lead">Use functions this application and logging --> login: user, password: user</p>
 				</div>
@@ -128,7 +136,11 @@
 				<p>Space Finance is an application designed for couples who would like to have an insight into their
 					expenses home-type shopping, delivery lunches or trip planning.</p>
 				<p class="lead">
-					<a class="btn btn-primary btn-lg" role="button" th:href="@{/finance}">Report</a>
+					<a class="btn btn-primary btn-lg" role="button" th:href="@{/finance}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-bar-graph" viewBox="0 0 16 16">
+					<path d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"/>
+					<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+				</svg>Report</a>
+
 				</p>
 			</div>
 		</div>
