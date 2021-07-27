@@ -136,13 +136,14 @@
 					<div th:align="center">
 						<fieldset>
 							<legend>Add price</legend>
+							<p th:errors="*{price}" th:if="${#fields.hasErrors('price')}">Title errors</p>
 							<div id="price" class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text">PLN</span>
 									<span class="input-group-text">0.00</span>
 								</div>
-								<p th:errors="*{price}" th:if="${#fields.hasErrors('price')}">Title errors</p>
-								<input name="description" size="20%" th:errorclass="'Bdc(red)'" th:field="*{price}" type="text">
+
+								<input name="description" size="20%" th:errorclass="'Bdc(red)'" th:field="*{price}" type="number" step="0.5" min="0">
 							</div>
 						</fieldset>
 					</div>
@@ -151,7 +152,6 @@
 				<legend>Please select shop</legend>
 				<div class="form-check">
 					<div id="first-group">
-						<p th:errors="*{shopName}" th:if="${#fields.hasErrors('shopName')}">Title errors</p>
 						<label class="btn btn-secondary">BIEDRONKA
 							<input autocomplete="off" id="option1" name="options" th:field="*{shopName}" type="radio"
 								   value="BIEDRONKA">
