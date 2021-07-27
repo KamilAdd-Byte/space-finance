@@ -85,7 +85,7 @@
 			<p th:if="validationMessage"></p>
 			<form action="#" method="post" th:action="@{/carExpenses_save}" th:object="${carExpenses}">
 				<div align="center">
-					<legend>Select type operation on your carExpenses</legend>
+					<legend>Select type operation on your car expenses</legend>
 					<div class="form-check">
 						<div id="first-group">
 							<p th:errors="*{typeCarExpenses}">Title errors</p>
