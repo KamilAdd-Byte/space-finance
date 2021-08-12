@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
-
 import java.time.LocalDate;
 import java.time.Month;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -125,6 +124,26 @@ class FinanceModelReportTest {
         assertThat(allExpensesUserKamil).as("Total price for user Kamil").isEqualTo(543.5);
     }
 
+    @Test
+    @DisplayName("should give total sum april month expenses for Kamil")
+    void shouldGiveTotalSumMonthExpensesForUserKamil(){
+        //given
+        Paragon newParagon = createNewParagon();
+        paragonService.saveParagon(newParagon);
+
+        Paragon paragonAprilMonth = createAprilParagon();
+        paragonService.saveParagon(paragonAprilMonth);
+
+        Paragon paragonJulyMonth = createJulyParagon();
+        paragonService.saveParagon(paragonJulyMonth);
+
+        //when
+        double sumOnMonthUserKamil = financeModel.getSumOnMonthUserKamil(Month.APRIL);
+
+        //then
+        assertThat(sumOnMonthUserKamil).as("Total price for Kamil in August month").isEqualTo(587.5);
+    }
+
     private CarExpenses createNewCarExpenses() {
         CarExpenses carExpenses = new CarExpenses();
         carExpenses.setTypeCarExpenses(TypeCarExpenses.MECHANIC);
@@ -141,5 +160,23 @@ class FinanceModelReportTest {
         newParagon.setDate(Month.APRIL);
         newParagon.setUser("KAMIL");
         return newParagon;
+    }
+
+    private Paragon createJulyParagon() {
+        Paragon julyExpenses = new Paragon();
+        julyExpenses.setUser("KAMIL");
+        julyExpenses.setDate(Month.JULY);
+        julyExpenses.setShopName(ShopName.LIDL);
+        julyExpenses.setPrice(33.5);
+        return julyExpenses;
+    }
+
+    private Paragon createAprilParagon() {
+        Paragon aprilParagon = new Paragon();
+        aprilParagon.setPrice(44);
+        aprilParagon.setUser("KAMIL");
+        aprilParagon.setDate(Month.APRIL);
+        aprilParagon.setShopName(ShopName.LIDL);
+        return aprilParagon;
     }
 }

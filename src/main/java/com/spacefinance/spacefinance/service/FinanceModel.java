@@ -1,6 +1,9 @@
 package com.spacefinance.spacefinance.service;
 
+import org.springframework.data.mongodb.core.aggregation.DateOperators;
 import org.springframework.stereotype.Service;
+
+import java.time.Month;
 
 @Service
 public interface FinanceModel {
@@ -13,5 +16,5 @@ public interface FinanceModel {
 
     double allExpensesUserKasia();
 
-    double getSumOnMonthUserKamil();
+    double getSumOnMonthUserKamil(Month month);
 }

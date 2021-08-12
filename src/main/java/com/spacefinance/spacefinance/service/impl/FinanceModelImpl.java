@@ -94,11 +94,11 @@ public class FinanceModelImpl implements FinanceModel {
 
 
     @Override
-    public double getSumOnMonthUserKamil() {
+    public double getSumOnMonthUserKamil(Month month) {
         double expensesKamil = 0;
         List<Paragon> paragons = paragonRepository.findAll();
         for (Paragon paragon : paragons) {
-            if (paragon.getDate().equals(Month.JULY) && paragon.getUser().equals("KAMIL")){
+            if (paragon.getDate().equals(month) && paragon.getUser().equals("KAMIL")){
                 double price = paragon.getPrice();
                 expensesKamil+=price;
             }
