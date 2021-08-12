@@ -6,6 +6,7 @@ import com.spacefinance.spacefinance.service.ParagonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ParagonServiceImpl implements ParagonService {
@@ -24,8 +25,9 @@ public class ParagonServiceImpl implements ParagonService {
     }
 
     @Override
-    public void removeParagon(Paragon paragon) {
-       this.paragonRepository.delete(paragon);
+    public void removeParagon(String idParagon) {
+        Paragon paragonById = paragonRepository.findById(idParagon).orElseThrow(IllegalArgumentException::new);
+        this.paragonRepository.delete(paragonById);
     }
 
     @Override

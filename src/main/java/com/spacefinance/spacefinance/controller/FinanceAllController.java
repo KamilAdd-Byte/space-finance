@@ -21,7 +21,6 @@ public class FinanceAllController {
         model.addAttribute("all",financeModel.sizeListAllOperation());
         model.addAttribute("sumAll",financeModel.allExpenditure());
         model.addAttribute("expensesKamil",financeModel.allExpensesUserKamil());
-        model.addAttribute("monthKamil",financeModel.getSumOnMonthUserKamil());
         model.addAttribute("expensesKasia",financeModel.allExpensesUserKasia());
         return "finance";
     }

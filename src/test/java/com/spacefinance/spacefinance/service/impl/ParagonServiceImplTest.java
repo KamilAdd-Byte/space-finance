@@ -2,6 +2,7 @@ package com.spacefinance.spacefinance.service.impl;
 
 import com.spacefinance.spacefinance.enums.ShopName;
 import com.spacefinance.spacefinance.model.Paragon;
+import com.spacefinance.spacefinance.repository.ParagonDao;
 import com.spacefinance.spacefinance.service.FinanceModel;
 import com.spacefinance.spacefinance.service.ParagonService;
 import org.junit.jupiter.api.*;
@@ -21,19 +22,19 @@ class ParagonServiceImplTest {
     private ParagonService paragonService;
 
     @Autowired
-    private FinanceModel financeModel;
+    private ParagonDao paragonRepository;
 
     @Autowired
     private MongoTemplate mongoTemplate;
 
     @BeforeEach
     void setUp() {
-
+        paragonRepository.deleteAll();
     }
 
     @AfterEach
-    void afterAll() {
-
+    void cleanUp() {
+        paragonRepository.deleteAll();
     }
 
     @Test
@@ -70,13 +71,12 @@ class ParagonServiceImplTest {
 
         //when
         paragonService.saveParagon(newParagon);
+        String newParagonId = newParagon.getId();
 
-        paragonService.removeParagon(newParagon);
-        String paragonId = newParagon.getId();
+        paragonService.removeParagon(newParagonId);
 
         //then
-        assertThat(paragonId).isNotNull();
-//        Assertions.assertThrows(Exception.class,()-> paragonService.removeParagon(newParagon));
+        Assertions.assertThrows(Exception.class,()-> paragonService.removeParagon(newParagonId));
     }
 
 }

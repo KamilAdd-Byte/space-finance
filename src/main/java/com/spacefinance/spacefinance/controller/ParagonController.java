@@ -49,9 +49,9 @@ public class ParagonController {
         return "redirect:/paragon";
     }
 
-    @GetMapping("/paragon/remove/{paragon}")
-    public String removeParagon(@PathVariable("paragon") Paragon paragon) {
-        paragonService.removeParagon(paragon);
+    @GetMapping("/paragon/remove/{id}")
+    public String removeParagon(@PathVariable("id") String idParagon) {
+        paragonService.removeParagon(idParagon);
         return "redirect:/paragon";
     }
 

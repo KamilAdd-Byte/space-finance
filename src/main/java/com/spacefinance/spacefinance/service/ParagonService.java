@@ -10,7 +10,7 @@ public interface ParagonService {
 
     void saveParagon(Paragon paragon);
 
-    void removeParagon(Paragon paragon);
+    void removeParagon(String idParagon);
 
     Paragon findById(String id);
 
