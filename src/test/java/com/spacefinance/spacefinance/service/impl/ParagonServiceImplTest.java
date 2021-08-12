@@ -70,13 +70,12 @@ class ParagonServiceImplTest {
 
         //when
         paragonService.saveParagon(newParagon);
+        String newParagonId = newParagon.getId();
 
-        paragonService.removeParagon(newParagon);
-        String paragonId = newParagon.getId();
+        paragonService.removeParagon(newParagonId);
 
         //then
-        assertThat(paragonId).isNotNull();
-//        Assertions.assertThrows(Exception.class,()-> paragonService.removeParagon(newParagon));
+        Assertions.assertThrows(Exception.class,()-> paragonService.removeParagon(newParagonId));
     }
 
 }

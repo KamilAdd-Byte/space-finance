@@ -63,24 +63,45 @@ class FinanceModelReportTest {
         assertThat(sizeListAllOperation).isEqualTo(2);
     }
 
-//    @Test
-//    @DisplayName("should size all operations in application added by users with remove one operation")
-//    void shouldSizeAllOperationsForUsersWithRemoveOneOperation(){
-//        //given
-//        Paragon newParagon = createNewParagon();
-//        paragonService.saveParagon(newParagon);
-//
-//        CarExpenses newCarExpenses = createNewCarExpenses();
-//        carExpensesService.addCarsExpenses(newCarExpenses);
-//
-//        //when
-//        int sizeListAllOperation = financeModel.sizeListAllOperation();
-//        carExpensesService.removeCarsExpenses(newCarExpenses);
-//
-//        //then
-//        assertThat(sizeListAllOperation).isNotNull();
-//        assertThat(sizeListAllOperation).isEqualTo(1);
-//    }
+    @Test
+    @DisplayName("should size all operations in application added by users with remove one operation")
+    void shouldSizeAllOperationsForUsersWithRemoveOneOperation(){
+        //given
+        Paragon newParagon = createNewParagon();
+        paragonService.saveParagon(newParagon);
+
+        CarExpenses newCarExpenses = createNewCarExpenses();
+        carExpensesService.addCarsExpenses(newCarExpenses);
+
+        //when
+        int sizeListAllOperation = financeModel.sizeListAllOperation();
+        String paragonId = newParagon.getId();
+        paragonService.removeParagon(paragonId);
+
+        sizeListAllOperation = financeModel.sizeListAllOperation();
+
+        //then
+        assertThat(sizeListAllOperation).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("should all expenditure price for all operation couple")
+    void shouldAllExpenditurePriceForAllOperationTwoUsers(){
+        //given
+        Paragon newParagon = createNewParagon();
+        paragonService.saveParagon(newParagon);
+
+        CarExpenses newCarExpenses = createNewCarExpenses();
+        carExpensesService.addCarsExpenses(newCarExpenses);
+
+        //when
+        double allExpenditure = financeModel.allExpenditure();
+
+        //then
+        assertThat(allExpenditure).isNotNull();
+        assertThat(allExpenditure).as("This price all expenses").isEqualTo(564.4300000000001);
+    }
+
 
     private CarExpenses createNewCarExpenses() {
         CarExpenses carExpenses = new CarExpenses();
