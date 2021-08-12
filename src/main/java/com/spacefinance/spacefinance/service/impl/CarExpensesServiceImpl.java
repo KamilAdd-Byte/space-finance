@@ -29,7 +29,11 @@ public class CarExpensesServiceImpl implements CarExpensesService {
 
     @Override
     public void removeCarsExpenses(CarExpenses carExpenses) {
-        this.carRepository.delete(carExpenses);
+        try {
+            this.carRepository.delete(carExpenses);
+        }catch (IllegalArgumentException e){
+            e.getStackTrace();
+        }
     }
 
     @Override

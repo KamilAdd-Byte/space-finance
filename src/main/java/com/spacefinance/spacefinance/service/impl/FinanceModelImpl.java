@@ -22,7 +22,7 @@ public class FinanceModelImpl implements FinanceModel {
 
     /**
      * @apiNote CarModel and ParagonModel (sizeListAllOperation) 'sizeListAllOperation' it's size two list
-     * @return size two list and sum CarExpenses expenses and Paragon expenses.
+     * @return size two list and sum Car expenses and Paragon expenses.
      */
     @Override
     public int sizeListAllOperation() {

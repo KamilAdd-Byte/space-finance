@@ -2,15 +2,14 @@ package com.spacefinance.spacefinance.service.impl;
 
 import com.spacefinance.spacefinance.enums.ShopName;
 import com.spacefinance.spacefinance.model.Paragon;
+import com.spacefinance.spacefinance.service.FinanceModel;
 import com.spacefinance.spacefinance.service.ParagonService;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
+import java.time.LocalTime;
 import java.time.Month;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,20 +20,25 @@ class ParagonServiceImplTest {
     @Autowired
     private ParagonService paragonService;
 
+    @Autowired
+    private FinanceModel financeModel;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
     @BeforeEach
     void setUp() {
 
     }
 
-    @AfterAll
-    static void afterAll() {
+    @AfterEach
+    void afterAll() {
 
     }
 
     @Test
     @DisplayName("should add paragon")
     void shouldSaveNewParagonOnMongoDB() {
-
         //given
         Paragon newParagon = createNewParagon();
 
@@ -45,37 +49,34 @@ class ParagonServiceImplTest {
         assertNotNull(newParagon);
         assertThat(newParagon.getShopName()).isEqualTo(ShopName.BIEDRONKA);
         assertThat(newParagon.getShopName()).isNotEqualTo(ShopName.AUCHAN);
-        assertThat(newParagon.getPrice()).as("Price").isEqualTo(22.2);
-
+        assertThat(newParagon.getPrice()).as("Price").isEqualTo(24.2);
     }
 
     private Paragon createNewParagon() {
         Paragon newParagon = new Paragon();
-        newParagon.setPrice(22.2);
+        newParagon.setPrice(24.2);
         newParagon.setShopName(ShopName.BIEDRONKA);
         newParagon.setUser("KASIA");
         newParagon.setDate(Month.APRIL);
-        newParagon.setId("Id-object-22233432");
+        newParagon.setTime(LocalTime.now());
         return newParagon;
     }
 
     @Test
-    void removeParagon() {
+    @DisplayName("should remove one paragon on data base mongo")
+    void shouldRemoveOneParagon() {
+        //given
+        Paragon newParagon = createNewParagon();
+
+        //when
+        paragonService.saveParagon(newParagon);
+
+        paragonService.removeParagon(newParagon);
+        String paragonId = newParagon.getId();
+
+        //then
+        assertThat(paragonId).isNotNull();
+//        Assertions.assertThrows(Exception.class,()-> paragonService.removeParagon(newParagon));
     }
 
-    @Test
-    void findById() {
-    }
-
-    @Test
-    void updateParagon() {
-    }
-
-    @Test
-    void sizeParagon() {
-    }
-
-    @Test
-    void getSumAllParagon() {
-    }
 }
