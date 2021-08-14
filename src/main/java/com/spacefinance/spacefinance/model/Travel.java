@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Setter
@@ -40,6 +42,16 @@ public class Travel {
 
     @Column(name = "time")
     private LocalTime time = LocalTime.now();
+
+    @Column(name = "things_to_take")
+    private List<ThingsToTake> thingsToTakes;
+
+
+    public void addToThingsList(ThingsToTake thingsToTake){
+        if (thingsToTakes==null)
+            thingsToTakes = new ArrayList<>();
+        thingsToTakes.add(thingsToTake);
+    }
 
     @Override
     public boolean equals(Object o) {

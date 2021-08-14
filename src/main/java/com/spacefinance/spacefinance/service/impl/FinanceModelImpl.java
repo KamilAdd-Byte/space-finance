@@ -105,6 +105,5 @@ public class FinanceModelImpl implements FinanceModel {
         }
         return expensesKamil;
     }
-
 }
 
