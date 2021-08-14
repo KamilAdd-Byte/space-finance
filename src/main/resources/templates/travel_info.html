@@ -7,7 +7,7 @@
 	<!--	<link rel="shortcut icon" href="https://www.pngarts.com/files/3/Letter-N-Free-PNG-Image.png">-->
 	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
-	<title>Paragonik</title>
+	<title>New travel</title>
 </head>
 <style>
     #container {
@@ -86,78 +86,81 @@
 <div id="container">
 	<nav id="menu" class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand">Strefa podróży</a>
+			<a class="navbar-brand">Travel space</a>
 		</div>
 	</nav>
 	<div id="navi">
 		<div class="container-fluid">
-			<a class="btn btn-outline-primary" th:href="@{/index}">Główna</a>
-			<a class="btn btn-outline-warning" th:href="@{/travel}">Strefa podróży</a>
+			<a class="btn btn-outline-primary" th:href="@{/index}">Home</a>
+			<a class="btn btn-outline-warning" th:href="@{/travel}">Travel space</a>
 		</div>
 	</div>
 	<main>
 		<div align="center" id="content">
-			<h1 align="center">Wprowadź dane podróży</h1>
+			<h1 align="center">Enter your travel details</h1>
 			<form action="#" method="POST" th:action="@{/save_travel}" th:object="${travel}">
 
 				<!--					tu zaczyna sie lista sklepów-->
 				<fieldset>
-					<legend> Nazwa </legend>
+					<legend> Name </legend>
 					<label>
 						<input th:errorclass="'Bdc(red)'" name="description" size="100%" th:field="*{name}" type="text">
 					</label>
 				</fieldset>
 
-				<legend>Typ</legend>
+				<legend>Type</legend>
 				<div class="form-check">
 					<div id="first-group">
-						<label class="btn btn-secondary">Rodzinny
+						<label class="btn btn-secondary">Family
 							<input autocomplete="off" id="option1" name="options" th:field="*{category}" type="radio"
 								   value="FAMILY">
 						</label>
-						<label class="btn btn-secondary">Góry
+						<label class="btn btn-secondary">Mountain
 							<input autocomplete="off" id="option2" name="options" th:field="*{category}" type="radio"
 								   value="MOUNTAIN">
 						</label>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option3" name="options" th:field="*{category}" type="radio"
-								   value="FRIENDS"> Przyjaciele
+								   value="FRIENDS"> Visit of friends
 						</label>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option4" name="options" th:field="*{category}" type="radio"
-								   value="WATER"> Morze/Jezioro
+								   value="WATER"> Water
 						</label>
 					</div>
 					<div id="second-group">
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option5" name="options" th:field="*{category}" type="radio"
-								   value="SAILINGE"> Żeglowanie
+								   value="SAILINGE"> Sailing
 						</label>
 						<label class="btn btn-secondary">
 							<input autocomplete="off" id="option6" name="options" th:field="*{category}" type="radio"
-								   value="OUTING"> Wycieczka
+								   value="OUTING"> Outing
 						</label>
 					</div>
 				</div>
 				<fieldset>
-					<legend> Ilość dni </legend>
+					<legend>The number of days</legend>
 					<label>
 						<input th:errorclass="'Bdc(red)'" name="description" size="100%" th:field="*{numberDays}" type="number">
 					</label>
 				</fieldset>
 				<button class="btn btn-lg btn-outline-dark" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
 					<path d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443l-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057L9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z"/>
-				</svg> Dodaj podróż</button>
+				</svg>Add travel</button>
 			</form>
 		</div>
 	</main>
-
-	<div align="center">
-	</div>
-</div>
-<div class="navbar navbar-light bg-dark" id="footer">
-	<a href="https://github.com/KamilAdd-Byte/Note-App">Paragonik KamilAdd-Byte</a>
-</div>
+	<footer class="page-footer font-small white">
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">© 2021 Copyright:
+			<a href="https://github.com/KamilAdd-Byte/space-finance"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+				<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+			</svg> Space-Finance project by KamilAdd-Byte</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
 </div>
 </body>
 </html>
