@@ -1,7 +1,9 @@
 package com.spacefinance.spacefinance.controller;
 
+import com.spacefinance.spacefinance.model.Car;
 import com.spacefinance.spacefinance.model.CarExpenses;
 import com.spacefinance.spacefinance.service.CarExpensesService;
+import com.spacefinance.spacefinance.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +21,12 @@ public class CarExpensesController {
 
     private final CarExpensesService carExpensesService;
 
+    private final CarService carService;
+
     @Autowired
-    public CarExpensesController(final CarExpensesService carExpensesService) {
+    public CarExpensesController(final CarExpensesService carExpensesService,final CarService carService) {
         this.carExpensesService = carExpensesService;
+        this.carService = carService;
     }
 
     @GetMapping("/carExpenses")
@@ -29,14 +34,18 @@ public class CarExpensesController {
         model.addAttribute("allCarExpenses", carExpensesService.allCarsExpenses());
         model.addAttribute("sum", carExpensesService.sizeCarsExpenses());
         model.addAttribute("allPrice", carExpensesService.getSumAllCarsExpenses());
+        model.addAttribute("allCars", carService.allMyCars());
         return "carExpenses";
     }
 
     @GetMapping("/carExpenses_info")
     public String addNewCarExpensesToModel(Model model) {
         CarExpenses carExpenses = new CarExpenses();
+        Car newCar = new Car();
         model.addAttribute("carExpenses", carExpenses);
         model.addAttribute("allCarExpenses", carExpensesService.allCarsExpenses());
+        model.addAttribute("car", newCar);
+        model.addAttribute("allCars", carService.allMyCars());
         return "carExpenses_info";
     }
 
