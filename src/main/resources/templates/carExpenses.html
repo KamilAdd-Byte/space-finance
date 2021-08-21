@@ -99,6 +99,7 @@
 				<path d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"/>
 				<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
 			</svg>Report</a>
+			<a class="btn btn-warning" th:href="@{/my_car}">Add my car</a>
 			<div id="title">
 				<span class="badge badge-pill badge-warning">Space of car expenses</span>
 			</div>
@@ -152,6 +153,40 @@
 			</form>
 		</div>
 		</form>
+
+		<div id="my_car">
+			<h6><i>My car</i></h6>
+			<table class="table table-active table-hover table-striped table-responsive">
+				<thead>
+				<tr align="center">
+					<!--				<th>idParagon</th>-->
+					<th>Mark</th>
+					<th>Model</th>
+					<th>Mileage</th>
+					<th>Registration</th>
+					<th>Review</th>
+					<th>Oil check</th>
+					<th>Options</th>
+					<!--				<th>Kategoria</th>-->
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:align="center" th:each="car: ${allCars}">
+					<td th:text="${car.mark}"></td>
+					<td th:text="${car.model}"></td>
+					<td th:text="${car.mileage}"></td>
+					<td th:text="${car.carRegistration}"></td>
+					<td th:text="${car.review}"></td>
+					<td th:text="${car.oilCheck}"></td>
+					<td>
+<!--						<a class="btn btn-primary" th:href="@{carExpenses/update/{id}(id=${carExpenses.id})}">Edit</a>-->
+						<a class="btn btn-danger" th:href="@{car/remove/{car}(car=${car.id})}">Remove</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+<!--		card:-->
 		<footer class="page-footer font-small white">
 			<!-- Copyright -->
 			<div class="footer-copyright text-center py-3">© 2021 Copyright:
@@ -162,7 +197,7 @@
 			<!-- Copyright -->
 		</footer>
 		<!-- Footer -->
-	</div>
+			</div>
 </main>
 </body>
 </html>
