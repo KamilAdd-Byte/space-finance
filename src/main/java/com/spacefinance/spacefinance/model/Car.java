@@ -1,15 +1,14 @@
 package com.spacefinance.spacefinance.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -33,11 +32,13 @@ public class Car {
     private String carRegistration;
 
     @Column(name = "car_review")
-    private Date review;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate review = LocalDate.now();
 
     @Column(name = "car_mileage")
     private double mileage;
 
     @Column(name = "car_oilCheck")
-    private Date oilCheck;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate oilCheck = LocalDate.now();
 }

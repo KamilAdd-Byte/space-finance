@@ -36,7 +36,6 @@ public class CarServiceImpl implements CarService {
         return this.carRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
-
     @Override
     public Car updateCar(String id) {
         Car update = this.carRepository.findById(id).orElseThrow(IllegalArgumentException::new);

@@ -1,6 +1,7 @@
 package com.spacefinance.spacefinance.controller;
 
 import com.spacefinance.spacefinance.model.Car;
+import com.spacefinance.spacefinance.model.CarExpenses;
 import com.spacefinance.spacefinance.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 import java.util.List;
@@ -35,9 +37,14 @@ public class CarController {
         if (bindingResult.hasErrors()){
             List<ObjectError> errorList = bindingResult.getAllErrors();
             errorList.forEach(objectError -> System.out.println(objectError.getDefaultMessage()));
-            return "carExpenses_info";
+            return "carExpenses";
         } else
             carService.addCar(car);
-        return "redirect:/my_car";
+        return "redirect:/carExpenses";
+    }
+    @GetMapping("car/remove/{car}")
+    public String removeCarById(@PathVariable("car") Car car, Model model) {
+        carService.removeCar(car);
+        return "redirect:/carExpenses";
     }
 }

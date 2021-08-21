@@ -166,7 +166,7 @@
 					<th>Registration</th>
 					<th>Review</th>
 					<th>Oil check</th>
-					<!--				<th>Opcje</th>-->
+					<th>Options</th>
 					<!--				<th>Kategoria</th>-->
 				</tr>
 				</thead>
@@ -178,14 +178,15 @@
 					<td th:text="${car.carRegistration}"></td>
 					<td th:text="${car.review}"></td>
 					<td th:text="${car.oilCheck}"></td>
-<!--					<td>-->
+					<td>
 <!--						<a class="btn btn-primary" th:href="@{carExpenses/update/{id}(id=${carExpenses.id})}">Edit</a>-->
-<!--						<a class="btn btn-danger" th:href="@{carExpenses/remove/{carExpenses}(carExpenses=${carExpenses.id})}">Remove</a>-->
-<!--					</td>-->
+						<a class="btn btn-danger" th:href="@{car/remove/{car}(car=${car.id})}">Remove</a>
+					</td>
 				</tr>
 				</tbody>
 			</table>
 		</div>
+<!--		card:-->
 		<footer class="page-footer font-small white">
 			<!-- Copyright -->
 			<div class="footer-copyright text-center py-3">© 2021 Copyright:
@@ -196,7 +197,7 @@
 			<!-- Copyright -->
 		</footer>
 		<!-- Footer -->
-	</div>
+			</div>
 </main>
 </body>
 </html>
