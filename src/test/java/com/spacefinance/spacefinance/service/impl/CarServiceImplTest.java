@@ -31,25 +31,17 @@ class CarServiceImplTest {
 
     @Test
     void allMyCars() {
-//        //given
-//        Car newCar = new Car();
-//        newCar.setOilCheck(LocalDate.now());
-//        newCar.setReview(LocalDate.MAX);
-//        newCar.setMark("Test");
-//        newCar.setModel("Model test000");
-//        newCar.setMileage(347.5);
-//        //when
-//        carService.addCar(newCar);
-        Date date = new Date();
-        System.out.println("Biblioteka Date: " + date);
+        //given
+        Car newCar = new Car();
+        newCar.setMark("Test");
+        newCar.setModel("Model test000");
+        newCar.setMileage(347.5);
+        //when
+        carService.addCar(newCar);
 
-        LocalDate now = LocalDate.now();
-        System.out.println("Biblioteka LocalDate: " + now);
-
-        LocalDateTime localDateTime = LocalDateTime.now();
-        System.out.println("Biblioteka LocalDateTime: " + localDateTime);
-//        //then
-//        assertThat(newCar.getMark()).isEqualTo("test");
+        //then
+        assertNotNull(newCar);
+        assertThat(newCar.getMark()).isEqualTo("Test");
 
     }
 

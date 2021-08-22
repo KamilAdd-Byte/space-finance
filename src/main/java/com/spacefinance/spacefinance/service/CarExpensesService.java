@@ -11,7 +11,7 @@ public interface CarExpensesService {
 
     void addCarsExpenses(CarExpenses carExpenses);
 
-    void removeCarsExpenses(CarExpenses carExpenses);
+    void removeCarsExpenses(String idCarExpenses);
 
     CarExpenses findCarExpensesById(String id);
 

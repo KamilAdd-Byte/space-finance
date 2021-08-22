@@ -59,9 +59,9 @@ public class CarExpensesController {
         carExpensesService.addCarsExpenses(carExpenses);
         return "redirect:/carExpenses";
     }
-     @GetMapping("carExpenses/remove/{car}")
-    public String removeCarsExpensesById(@PathVariable("car") CarExpenses carExpenses, Model model) {
-        carExpensesService.removeCarsExpenses(carExpenses);
+     @GetMapping("carExpenses/remove/{id}")
+    public String removeCarsExpensesById(@PathVariable("id") String idCarExpenses, Model model) {
+        carExpensesService.removeCarsExpenses(idCarExpenses);
         return "redirect:/carExpenses";
     }
 

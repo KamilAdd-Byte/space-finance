@@ -28,9 +28,11 @@ public class CarExpensesServiceImpl implements CarExpensesService {
     }
 
     @Override
-    public void removeCarsExpenses(CarExpenses carExpenses) {
+    public void removeCarsExpenses(String idCarExpenses) {
+        CarExpenses aThrow = carRepository.findById(idCarExpenses).orElseThrow(IllegalArgumentException::new);
         try {
-            this.carRepository.delete(carExpenses);
+
+            this.carRepository.delete(aThrow);
         }catch (IllegalArgumentException e){
             e.getStackTrace();
         }

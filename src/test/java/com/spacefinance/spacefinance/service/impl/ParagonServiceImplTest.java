@@ -3,13 +3,11 @@ package com.spacefinance.spacefinance.service.impl;
 import com.spacefinance.spacefinance.enums.ShopName;
 import com.spacefinance.spacefinance.model.Paragon;
 import com.spacefinance.spacefinance.repository.ParagonDao;
-import com.spacefinance.spacefinance.service.FinanceModel;
 import com.spacefinance.spacefinance.service.ParagonService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoTemplate;
-
 import java.time.LocalTime;
 import java.time.Month;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -38,7 +36,7 @@ class ParagonServiceImplTest {
     }
 
     @Test
-    @DisplayName("should add paragon")
+    @DisplayName("should add paragon and check price and shop type model")
     void shouldSaveNewParagonOnMongoDB() {
         //given
         Paragon newParagon = createNewParagon();
@@ -64,7 +62,7 @@ class ParagonServiceImplTest {
     }
 
     @Test
-    @DisplayName("should remove one paragon on data base mongo")
+    @DisplayName("should remove one paragon on database mongo")
     void shouldRemoveOneParagon() {
         //given
         Paragon newParagon = createNewParagon();
@@ -79,4 +77,25 @@ class ParagonServiceImplTest {
         Assertions.assertThrows(Exception.class,()-> paragonService.removeParagon(newParagonId));
     }
 
+    @Test
+    @DisplayName("should update one paragon on database mongo")
+    void shouldUpdateParagon(){
+        //given
+        Paragon newParagon = createNewParagon();
+        paragonService.saveParagon(newParagon);
+        String newParagonId = newParagon.getId();
+
+        //when
+        Paragon updateParagon = paragonService.updateParagon(newParagonId);
+        updateParagon.setUser("KASIA");
+        updateParagon.setShopName(ShopName.INNY);
+        updateParagon.setPrice(40.9);
+
+        //then
+        assertThat(newParagon.getId()).isEqualTo(updateParagon.getId());
+
+        assertEquals(updateParagon.getUser(),"KASIA");
+        assertEquals(40.9,updateParagon.getPrice());
+        assertNotSame(newParagon,updateParagon);
+    }
 }
