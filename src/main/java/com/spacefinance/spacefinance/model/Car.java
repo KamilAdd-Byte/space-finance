@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -41,4 +40,7 @@ public class Car {
     @Column(name = "car_oilCheck")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate oilCheck = LocalDate.now();
+
+    private boolean accidental;
+
 }
