@@ -84,9 +84,26 @@
 </style>
 <body>
 <div id="container">
-	<nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand">Travel space</a>
+	<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Space Family Finance</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Info</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/KamilAdd-Byte/space-finance">GitHub</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/finance}">My Finance</a>
+				</li>
+			</ul>
 		</div>
 	</nav>
 	<div id="navi">
