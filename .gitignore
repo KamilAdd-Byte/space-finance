@@ -172,3 +172,4 @@ testem.log
 .DS_Store
 Thumbs.db
 # End of https://www.toptal.com/developers/gitignore/api/linux,intellij,java,maven
+lib/
