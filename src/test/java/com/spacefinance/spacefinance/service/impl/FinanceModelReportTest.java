@@ -1,14 +1,14 @@
 package com.spacefinance.spacefinance.service.impl;
 
-import com.spacefinance.spacefinance.enums.ShopName;
-import com.spacefinance.spacefinance.enums.TypeCarExpenses;
-import com.spacefinance.spacefinance.model.CarExpenses;
-import com.spacefinance.spacefinance.model.Paragon;
-import com.spacefinance.spacefinance.repository.CarExpensesDao;
-import com.spacefinance.spacefinance.repository.ParagonDao;
-import com.spacefinance.spacefinance.service.CarExpensesService;
-import com.spacefinance.spacefinance.service.FinanceModel;
-import com.spacefinance.spacefinance.service.ParagonService;
+import com.spacefinance.spacefinance.shopspace.type.ShopName;
+import com.spacefinance.spacefinance.carspace.cars.type.TypeCarExpenses;
+import com.spacefinance.spacefinance.carspace.CarExpenses;
+import com.spacefinance.spacefinance.shopspace.Paragon;
+import com.spacefinance.spacefinance.carspace.repository.CarExpensesDao;
+import com.spacefinance.spacefinance.shopspace.repository.ParagonDao;
+import com.spacefinance.spacefinance.carspace.service.CarExpensesService;
+import com.spacefinance.spacefinance.shopspace.finance.service.FinanceModel;
+import com.spacefinance.spacefinance.shopspace.service.ParagonService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -19,7 +19,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import java.time.LocalDate;
 import java.time.Month;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class FinanceModelReportTest {

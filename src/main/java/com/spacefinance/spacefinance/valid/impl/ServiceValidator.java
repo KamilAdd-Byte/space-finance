@@ -1,6 +1,6 @@
 package com.spacefinance.spacefinance.valid.impl;
 
-import com.spacefinance.spacefinance.model.Paragon;
+import com.spacefinance.spacefinance.shopspace.Paragon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import javax.validation.ConstraintViolation;

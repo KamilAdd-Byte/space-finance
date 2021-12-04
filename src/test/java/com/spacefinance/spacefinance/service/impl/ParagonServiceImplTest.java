@@ -1,9 +1,9 @@
 package com.spacefinance.spacefinance.service.impl;
 
-import com.spacefinance.spacefinance.enums.ShopName;
-import com.spacefinance.spacefinance.model.Paragon;
-import com.spacefinance.spacefinance.repository.ParagonDao;
-import com.spacefinance.spacefinance.service.ParagonService;
+import com.spacefinance.spacefinance.shopspace.type.ShopName;
+import com.spacefinance.spacefinance.shopspace.Paragon;
+import com.spacefinance.spacefinance.shopspace.repository.ParagonDao;
+import com.spacefinance.spacefinance.shopspace.service.ParagonService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

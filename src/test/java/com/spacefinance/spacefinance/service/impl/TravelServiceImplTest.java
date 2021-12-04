@@ -1,19 +1,15 @@
 package com.spacefinance.spacefinance.service.impl;
 
-import com.spacefinance.spacefinance.enums.TravelCategory;
-import com.spacefinance.spacefinance.model.ThingsToTake;
-import com.spacefinance.spacefinance.model.Travel;
-import com.spacefinance.spacefinance.service.TravelService;
+import com.spacefinance.spacefinance.travelspace.type.TravelCategory;
+import com.spacefinance.spacefinance.travelspace.type.ThingsToTake;
+import com.spacefinance.spacefinance.travelspace.Travel;
+import com.spacefinance.spacefinance.travelspace.service.TravelService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class TravelServiceImplTest {

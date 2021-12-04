@@ -1,9 +1,9 @@
 package com.spacefinance.spacefinance.service.impl;
 
-import com.spacefinance.spacefinance.enums.TypeCarExpenses;
-import com.spacefinance.spacefinance.model.CarExpenses;
-import com.spacefinance.spacefinance.repository.CarExpensesDao;
-import com.spacefinance.spacefinance.service.CarExpensesService;
+import com.spacefinance.spacefinance.carspace.cars.type.TypeCarExpenses;
+import com.spacefinance.spacefinance.carspace.CarExpenses;
+import com.spacefinance.spacefinance.carspace.repository.CarExpensesDao;
+import com.spacefinance.spacefinance.carspace.service.CarExpensesService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

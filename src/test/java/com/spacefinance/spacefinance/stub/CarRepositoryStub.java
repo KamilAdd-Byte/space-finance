@@ -1,6 +1,8 @@
 package com.spacefinance.spacefinance.stub;
 
-import com.spacefinance.spacefinance.model.Car;
+import com.spacefinance.spacefinance.carspace.cars.Car;
+import com.spacefinance.spacefinance.carspace.cars.repository.stub.CarsRepositoryStub;
+
 import java.util.Arrays;
 import java.util.List;
 

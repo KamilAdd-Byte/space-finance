@@ -1,6 +1,7 @@
 package com.spacefinance.spacefinance.stub;
 
-import com.spacefinance.spacefinance.model.Car;
+import com.spacefinance.spacefinance.carspace.cars.Car;
+import com.spacefinance.spacefinance.carspace.cars.repository.stub.CarsServiceStub;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -9,7 +10,6 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class CarsServiceStubTest {

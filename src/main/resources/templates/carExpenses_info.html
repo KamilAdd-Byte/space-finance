@@ -81,7 +81,7 @@
 	<main>
 		<div align="center" id="content">
 			<h6 align="center">Add new expenses</h6>
-			<!--			/*@thymesVar id="carExpenses" type="com.spacefinance.spacefinance.model.CarExpenses"*/-->
+			<!--			/*@thymesVar id="carExpenses" type="com.spacefinance.spacefinance.carspace.CarExpenses"*/-->
 			<p th:if="validationMessage"></p>
 			<form action="#" method="post" th:action="@{/carExpenses_save}" th:object="${carExpenses}">
 				<div align="center">

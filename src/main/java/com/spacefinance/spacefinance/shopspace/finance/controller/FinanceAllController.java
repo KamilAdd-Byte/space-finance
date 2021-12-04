@@ -1,4 +1,4 @@
-package com.spacefinance.spacefinance.controller;
+package com.spacefinance.spacefinance.shopspace.finance.controller;
 
 import com.spacefinance.spacefinance.shopspace.finance.service.FinanceModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,25 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IndexController {
+public class FinanceAllController {
 
     private final FinanceModel financeModel;
 
     @Autowired
-    public IndexController(FinanceModel financeModel) {
+    public FinanceAllController(final FinanceModel financeModel) {
         this.financeModel = financeModel;
     }
 
-    @GetMapping("/")
-    public String homePage(Model model){
+    @GetMapping("/finance")
+    public String myExpensesAllSummary(Model model){
         model.addAttribute("all",financeModel.sizeListAllOperation());
         model.addAttribute("sumAll",financeModel.allExpenditure());
-        return "index";
-    }
-    @GetMapping("/index")
-    public String get(Model model){
-        model.addAttribute("all",financeModel.sizeListAllOperation());
-        model.addAttribute("sumAll",financeModel.allExpenditure());
-        return "index";
+        model.addAttribute("expensesKamil",financeModel.allExpensesUserKamil());
+        model.addAttribute("expensesKasia",financeModel.allExpensesUserKasia());
+        return "finance";
     }
 }
