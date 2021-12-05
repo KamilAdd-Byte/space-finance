@@ -41,27 +41,55 @@
 	}
 	#card{
 		padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
 	}
 	#card-1 {
         float: left;
-		width: 620px;
-        height: 200px;
-        background-color: #96d7c7;
+        width: 600px;
+		height: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #0f202f;
+        color: white;
         padding: 20px 30px;
 	}
 	#card-2 {
         float: left;
-        width: 620px;
-        height: 200px;
-        background-color: #b0f1e1;
+        width: 600px;
+        height: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #0f202f;
+		color: white;
         padding: 20px 30px;
 	}
     #card-3 {
         float: left;
-        width: 620px;
-		height: 200px;
-        background-color: #96d7c7;
+        width: 600px;
+        height: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #0f202f;
+        color: white;
         padding: 20px 30px;
+    }
+    .card h3 {
+        padding: 2px;
+        margin: 8px 0;
+    }
+    .card {
+        border: 1px solid #dadada;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.2s;
+        width: 50%;
+    }
+    .image {
+        width:100%;
+        clip-path: polygon(0 0, 100% 0, 100% 42%, 0 33%);
+    }
+    .card:hover {
+        box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
     legend {
         color: chocolate;
@@ -82,6 +110,7 @@
     }
 </style>
 <body>
+<main>
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<a class="navbar-brand" href="#">Space Family Finance</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,7 +119,9 @@
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-link" th:href="@{/index}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+					<path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+				</svg> Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">Info</a>
@@ -116,7 +147,7 @@
 <div id="card">
 	<div class="card" id="card-1">
 		<div class="card-body" id="card-body">
-			<div>
+			<img src="https://wartoszkolic.pl/wp-content/uploads/2019/10/Canva-Vegetables-Stall.jpg" alt="Avatar" class='image'>
 				<h5 class="card-title"><b>Shopping couple expenses</b></h5>
 				<p class="card-text">You added the receipt on your application. Couples expenses in one place.</p>
 				<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Strefa wydatków w sklepach"><a class="btn btn-outline-primary" th:href="@{/paragon}"><svg class="bi bi-basket2" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
@@ -124,11 +155,12 @@
 					<path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
 					<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
 				</svg>Shop space</a></span>
-			</div>
+
 		</div>
 	</div>
 	<div class="card" id="card-2" >
 		<div class="card-body">
+			<img src="https://kursy-rachunkowosci.pl/blog/wp-content/uploads/2021/07/WYDATKI-NA-SAMOCHODY-A-VAT-Mentoris-1.jpg" alt="Avatar" class='image'>
 			<h5 class="card-title"><b>Space on your car expenses</b></h5>
 			<p class="card-text">Controlling expenses on your car. Refueling, care and accessories on
 				car.</p>
@@ -139,6 +171,7 @@
 	</div>
 	<div class="card" id="card-3" >
 		<div class="card-body">
+			<img src="https://www.polishtravel.com.pl/wp-content/uploads/2021/08/Bez-nazwy-1-1500x630.jpg" alt="Avatar" class='image'>
 			<h5 class="card-title"><b>Space on your couple travels</b></h5>
 			<p class="card-text">Controlling expenses on your travels. Add numbers days of yours travel. Travel list</p>
 			<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Wydatki związane z podróżami"><a class="btn btn-outline-primary" th:href="@{/travel}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
@@ -183,6 +216,7 @@
 	</footer>
 	<!-- Footer -->
 </div>
+</main>
 </body>
 </html>
 
